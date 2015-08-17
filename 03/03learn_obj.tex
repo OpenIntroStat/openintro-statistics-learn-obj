@@ -1,0 +1,117 @@
+\documentclass[11pt]{article}
+\usepackage[top=1.5cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}            
+\usepackage{multirow}    
+\usepackage{multicol}    
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{enumitem}
+\usepackage{ulem}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\usepackage{xcolor}
+
+\definecolor{oiB}{rgb}{.337,.608,.741}
+\definecolor{oiR}{rgb}{.941,.318,.200}
+\definecolor{oiG}{rgb}{.298,.447,.114}
+\definecolor{oiY}{rgb}{.957,.863,0}
+
+\definecolor{light}{rgb}{.337,.608,.741}
+\definecolor{dark}{rgb}{.337,.608,.741}
+
+\usepackage[colorlinks=false,pdfborder={0 0 0},urlcolor= dark,colorlinks=true,linkcolor=black]{hyperref}
+
+\newcommand{\light}[1]{\textcolor{light}{\textbf{#1}}}
+\newcommand{\dark}[1]{\textcolor{dark}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+
+
+
+%\date{}                                           % Activate to display a given date or no date
+
+%
+
+\begin{document}
+
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 3: Distributions of random variables}} \\
+
+\begin{enumerate}
+\renewcommand\labelenumi{\textcolor{oiB}{\textbf{LO \theenumi.}}}
+
+\item Calculate the standardized (Z) score of a data point given the mean and standard deviation of its distribution.
+
+\item Use the Z score to determine the percentile score of a data point if the distribution is normal (using technology or normal probability tables), or to assess whether or not the particular observation would be considered unusual (regardless of the shape of the distribution).
+
+\item Depending on the shape of the distribution determine whether the median would have a negative, positive, or 0 Z score.
+
+\item Assess whether or not a distribution is nearly normal using the 68-95-99.7\% rule or graphical methods such as a normal probability plot.
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.75cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{oiB}{$\ast$}}}
+\item Reading: Section 3.1 and 3.2 of OpenIntro Statistics
+\item Video: \href{http://www.youtube.com/watch?v=ev463hHe544}{Normal Distribution - Finding Probabilities - Dr.\c{C}etinkaya-Rundel, YouTube, 6:04}
+\item Video: \href{http://www.youtube.com/watch?v=6rAg4Y6NirU}{Normal Distribution - Finding Cutoff Points - Dr.\c{C}etinkaya-Rundel, YouTube, 4:25}
+\item Additional resources:
+\begin{itemize}
+\item Video: \href{http://www.youtube.com/watch?v=McSFVzc8Swk&list=PL568547ACA9211CCA&index=24}{Normal distribution and 68-95-99.7\% rule, YouTube, 3:18}
+\item Video: \href{http://www.youtube.com/watch?v=5v3Czc6ZK-Q&list=PL568547ACA9211CCA&index=23}{Z scores - Part 1, YouTube, 3:03} 
+\item Video: \href{http://www.youtube.com/watch?v=aa_deKPDgI4&list=PL568547ACA9211CCA&index=22}{Z scores - Part 2, YouTube, 4:01}
+\end{itemize}
+\item Test yourself: True/False: In a right skewed distribution the Z score of the median is positive.
+\end{itemize}
+}}
+
+%
+
+\vspace{0.25cm}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{oiB}{\textbf{LO \theenumi.}}}
+
+\item Determine if a random variable is binomial using the four conditions.
+
+\item Calculate the number of possible scenarios for obtaining $k$ successes in $n$ trials.
+
+\item Calculate probability of a given number of successes in a given number of trials using the binomial distribution.
+
+\item When number of trials is sufficiently large, use normal approximation to calculate binomial probabilities, and explain why this approach works.
+
+\end{enumerate}
+
+%
+
+\gray{
+{\it
+\vspace{-0.75cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{oiB}{$\ast$}}}
+\item Reading: Section 3.4 of OpenIntro Statistics
+\item Video: \href{http://www.youtube.com/watch?v=tKmyzhvgudw}{Binomial Distribution - Finding Probabilities - Dr.\c{C}etinkaya-Rundel, YouTube, 8:46}
+\item Additional resources:
+\begin{itemize}
+\item Video: \href{http://www.youtube.com/watch?v=oYeJBdCGwxk&list=PL568547ACA9211CCA&index=28&feature=plpp_video}{Binomial distribution, YouTube, 4:25}
+\item Video: \href{http://www.youtube.com/watch?v=0er3EiM-bpg&list=PL568547ACA9211CCA&index=27&feature=plpp_video}{Mean and standard deviation of a binomial distribution, YouTube, 1:39} 
+\end{itemize}
+\item Test yourself: 
+\begin{enumerate}
+\item True/False: We can use the binomial distribution to determine the probability that in 10 rolls of a die the first 6 occurs on the 8th roll.
+\item True / False: If a family has 3 kids, there are 8 possible combinations of gender order.
+\item True/ False: When $n = 100$ and $p = 0.92$ we can use the normal approximation to the binomial to calculate the probability of 90 or more successes.
+\end{enumerate}
+\end{itemize}
+}}
+
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[top=1.5cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}            
+\usepackage{multirow}    
+\usepackage{multicol}    
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{enumitem}
+\usepackage{ulem}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\usepackage{xcolor}
+
+\definecolor{oiB}{rgb}{.337,.608,.741}
+\definecolor{oiR}{rgb}{.941,.318,.200}
+\definecolor{oiG}{rgb}{.298,.447,.114}
+\definecolor{oiY}{rgb}{.957,.863,0}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+
+\usepackage[colorlinks=false,pdfborder={0 0 0},urlcolor= oiB,colorlinks=true,linkcolor=black]{hyperref}
+
+
+%\date{}                                           % Activate to display a given date or no date
+
+%
+
+\begin{document}
+
+{\LARGE \textcolor{oiB}{OpenIntro: Statistics}} \\
+
+
+This book introduces students to the discipline of statistics as a science of understanding and analyzing data. Throughout the semester, students learn how to effectively make use of data in the face of uncertainty: how to collect data, how to analyze data, and how to use data to make inferences and conclusions about real world phenomena. The learning goals are as follows:
+ 
+\begin{enumerate}
+\renewcommand\labelenumi{\textcolor{oiB}{\textbf{Goal \theenumi.}}}
+\item Recognize the importance of data collection, identify limitations in data collection methods and other sources of statistical bias, and determine their implications and how they affect the scope of inference.\item Use statistical software to summarize data numerically and visually, and to perform data analysis. \item Have a conceptual understanding of the unified nature of statistical inference.\item Apply estimation and testing methods to analyze single variables or the relationship between two variables in order to understand natural phenomena and make data-based decisions.\item Model numerical response variables using a single explanatory variable or multiple explanatory variables in order to investigate relationships between variables.\item Interpret results correctly, effectively, and in context without relying on statistical jargon.\item Critique data-based claims and evaluate data-based decisions.\item Complete two research projects: one that employs simple statistical inference and another that employs more advanced modeling techniques.
+\end{enumerate}
+
+\end{document}

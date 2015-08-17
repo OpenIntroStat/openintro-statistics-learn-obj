@@ -1,0 +1,277 @@
+\documentclass[11pt]{article}
+\usepackage[top=1.5cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}            
+\usepackage{multirow}    
+\usepackage{multicol}    
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{enumitem}
+\usepackage{ulem}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\usepackage{xcolor}
+
+\definecolor{oiB}{rgb}{.337,.608,.741}
+\definecolor{oiR}{rgb}{.941,.318,.200}
+\definecolor{oiG}{rgb}{.298,.447,.114}
+\definecolor{oiY}{rgb}{.957,.863,0}
+
+\definecolor{light}{rgb}{.337,.608,.741}
+\definecolor{dark}{rgb}{.337,.608,.741}
+
+\usepackage[colorlinks=false,pdfborder={0 0 0},urlcolor= dark,colorlinks=true,linkcolor=black]{hyperref}
+
+\newcommand{\light}[1]{\textcolor{light}{\textbf{#1}}}
+\newcommand{\dark}[1]{\textcolor{dark}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+
+
+%\date{}                                           % Activate to display a given date or no date
+
+%
+
+\begin{document}
+
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 6: Inference for categorical variables}} \\
+
+%
+\begin{enumerate}
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Define population proportion $p$ (parameter) and sample proportion $\hat{p}$ (point estimate).
+
+\item Calculate the sampling variability of the proportion, the standard error, as 
+\[ SE = \sqrt{\frac{p(1-p)}{n}}, \] 
+where $p$ is the population proportion.
+\begin{itemize}
+\item[-] Note that when the population proportion $p$ is not known (almost always), this can be estimated using the sample proportion, $SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$.
+\end{itemize}
+
+\item Recognize that the Central Limit Theorem (CLT) is about the distribution of point estimates, and that given certain conditions, this distribution will be nearly normal.
+\begin{itemize}
+\item[-] In the case of the proportion the CLT tells us that if \\
+(1) the observations in the sample are independent, \\
+(2) the sample size is sufficiently large (checked using the success/failure condition: $np \ge 10$ and $n(1-p) \ge 10$), \\
+then the distribution of the sample proportion will be nearly normal, centered at the true population proportion and with a standard error of $\sqrt{\frac{p(1-p)}{n}}$.
+\[ \hat{p} \sim N \left( mean = p, SE = \sqrt{\frac{p(1-p)}{n}} \right) \]
+\end{itemize}
+
+\item Remember that confidence intervals are calculated as 
+\[ \text{point estimate} \pm \text{margin of error} \]
+and test statistics are calculated as 
+\[ \text{test statistic =} \frac{\text{point estimate - null value}}{\text{standard error}} \]
+
+\item Note that the standard error calculation for the confidence interval and the hypothesis test are different when dealing with proportions, since in the hypothesis test we need to assume that the null hypothesis is true -- remember: p-value = P(observed or more extreme test statistic $|$ $H_0$ true).
+\begin{itemize}
+\item[-] For confidence intervals use $\hat{p}$ (observed sample proportion) when calculating the standard error and checking the success/failure condition:
+\[ SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]
+\item[-] For hypothesis tests use $p_0$ (null value) when calculating the standard error and checking the success/failure condition:
+\[ SE_{\hat{p}} = \sqrt{\frac{p_0 (1-p_0)}{n}} \]
+\item[-] Such a discrepancy doesn't exist when conducting inference for means, since the mean doesn't factor into the calculation of the standard error, while the proportion does.
+\end{itemize}
+
+\item Explain why when calculating the required minimum sample size for a given margin of error at a given confidence level, we use $\hat{p} = 0.5$ if there are no previous studies suggesting a more accurate estimate.
+\begin{itemize}
+\item[-] Conceptually: When there is no additional information, 50\% chance of success is a good guess for events with only two outcomes (success or failure).
+\item[-] Mathematically: Using $\hat{p} = 0.5$ yields the most conservative (highest) estimate for the required sample size.
+\end{itemize}
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.55cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 6.1 of OpenIntro Statistics
+\item Videos: 
+\begin{itemize}
+\item[-] \href{http://www.youtube.com/watch?v=MWff4_ORZjM}{Sample proportions}, YouTube (3:09)
+\item[-] \href{http://www.youtube.com/watch?v=3ReWri_jh3M}{Confidence intervals for population proportions}, YouTube (4:18)
+\item[-] \href{http://www.youtube.com/watch?v=OyuQn-P8iQ0}{Calculating required sample size to estimate population proportions}, YouTube (2:45)
+\item[-] \href{http://www.youtube.com/watch?v=dH6igFVoCAw}{One sample Z test for a proportion}, YouTube (6:08)
+\end{itemize}
+\item Test yourself:
+\begin{enumerate}
+\item Suppose 10\% of Duke students smoke. You collect many random samples of 100 Duke students at a time, and calculate a sample proportion ($\hat{p}$) for each sample, indicating the proportion of students in that sample who smoke. What would you expect the distribution of these $\hat{p}$s to be? Describe its shape, center, and spread.
+\item Suppose you want to construct a confidence interval with a margin of error no more than 4\% for the proportion of Duke students who smoke. How would your calculation of the required sample size change if you don't know anything about the smoking habits of Duke students vs. if you have a reliable previous study estimating that about 10\% of Duke students smoke.
+\end{enumerate}
+\end{itemize}
+}}
+
+%
+
+\vspace{0.48cm}
+
+%
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Note that the calculation of the standard error of the distribution of the difference in two independent sample proportions is different for a confidence interval and a hypothesis test.
+\begin{itemize}
+\item[-] confidence interval and hypothesis test when $H_0: p_1 -p_2 =$ some value other than 0: 
+\[SE_{(\hat{p}_1 - \hat{p}_2)} = \sqrt{\frac{ \hat{p}_1 (1 - \hat{p}_1)}{n_1} + \frac{ \hat{p}_2 (1 - \hat{p}_2)}{n_2} } \]
+\item[-] hypothesis test when $H_0: p_1 -p_2 = 0$: 
+\[SE_{(\hat{p}_1 - \hat{p}_2)} = \sqrt{\frac{ \hat{p}_{pool} (1 - \hat{p}_{pool})}{n_1} + \frac{ \hat{p}_{pool} (1 - \hat{p}_{pool})}{n_2} }, \]
+where $\hat{p}_{pool}$ is the overall rate of success:
+\[ \hat{p}_{pool} = \frac{\text{number of successes in group 1 + number of successes in group 2}}{n_1 + n_2} \]
+\end{itemize}
+
+\item Note that the reason for the difference in calculations of standard error is the same as in the case of the single proportion: when the null hypothesis claims that the two population proportions are equal, we need to take that into consideration when calculating the standard error for the hypothesis test, and use a common proportion for both samples.
+
+\end{enumerate}
+
+
+
+\gray{
+{\it
+\vspace{-0.55cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 6.2 of OpenIntro Statistics
+\item Videos:
+\begin{itemize}
+\item[-] \href{http://www.youtube.com/watch?v=_iFAZgpWsx0}{Sampling distributions for proportions, Dr. \c{C}etinkaya-Rundel}, YouTube (16:16)
+\item[-] \href{http://www.youtube.com/watch?v=QaEjRSVG02E}{Comparing proportions via hypothesis testing}, YouTube (4:05)
+\item[-] \href{http://www.youtube.com/watch?v=eAtCf0dM_VI}{Comparing proportions via confidence intervals}, YouTube (1:58)
+\end{itemize}
+\item Test yourself:
+\begin{enumerate}
+\item Suppose a 95\% confidence interval for the difference between the Duke and UNC students who smoke (calculated using $\hat{p}_{Duke} - \hat{p}_UNC$) is (-0.08,0.11). Interpret this interval, making sure to incorporate into your interpretation a comparative statement about the two schools.
+\item Does the above interval suggest a significant difference between the true proportions of smokers at the two schools?
+\item Suppose you had a sample of 100 students from Duke where 11 of them smoke, and a sample of 80 students from UNC where 10 of them smoke. Calculate $\hat{p}_{pool}$.
+\item When and why do we use $\hat{p}_{pool}$ in calculation of the standard error for the difference between two sample proportions?
+\end{enumerate}
+\end{itemize}
+}}
+
+
+%
+
+\vspace{0.48cm}
+
+%
+
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Use a chi-square test of goodness of fit to evaluate if the distribution of levels of a single categorical variable follows a hypothesized distribution.
+\begin{itemize}
+\item[] $H_0:$ The distribution of observed counts follow the hypothesized distribution, and any observed differences are due to chance.
+\item[] $H_A:$ The distribution of observed counts do not follow the hypothesized distribution.
+\end{itemize}
+
+\item Calculate the expected counts for a given level (cell) in a one-way table as the sample size times the hypothesized proportion for that level.
+
+\item Calculate the chi-square test statistic as 
+\[ \chi = \sum_{i = 1}^{k}  \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}, \]
+where $k$ is the number of cells.
+
+\item Note that the chi-square distribution is right skewed with one parameter: degrees of freedom. In the case of a goodness of fit test, $df = k - 1$.
+
+\item List the conditions necessary for performing a chi-square test (goodness of fit or independence)
+\begin{enumerate}
+\item[(1)] the observations should be independent
+\item[(2)] expected counts for each cell should be at least 5
+\item[(3)] degrees of freedom should be at least 2 (if not, use methods for evaluating proportions)
+\end{enumerate}
+
+\item Describe how to use the chi-square table to obtain a p-value.
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.55cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 6.3 of OpenIntro Statistics
+\item Videos:
+\begin{itemize}
+\item[-] \href{http://www.youtube.com/watch?v=b3o_hjWKgQw}{Chi-square test of goodness of fit}, YouTube (4:00)
+\end{itemize}
+\item Test yourself:
+\begin{enumerate}
+\item Explain the different hypothesis tests one could use when assessing the distribution of a categorical variable (e.g. smoking status) with only two levels (e.g. levels: smoker and non-smoker) vs. more than two levels (e.g. levels: heavy smoker, moderate smoker, occasional smoker, non-smoker).
+\item Why is the p-value for chi-square tests always ``one sided"?
+\end{enumerate}
+\end{itemize}
+}}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item When evaluating the independence of two categorical variables where at least one has more than two levels, use a chi-square test of independence.
+\begin{itemize}
+\item[] $H_0:$ The two variables are independent.
+\item[] $H_A:$ The two variables are dependent.
+\end{itemize}
+
+\item Calculate expected counts in two-way tables as 
+\[ E = \frac{\text{row total} \times \text{column total}}{\text{grand total}} \]
+
+\item Calculate the degrees of freedom for chi-square test of independence as $df = (R - 1) \times (C - 1)$, where $R$ is the number of rows in a two-way table, and $C$ is the number of columns.
+
+\item Note that there is no such thing as a chi-square confidence interval for proportions, since in the case of a categorical variables with many levels, there isn't one parameter to estimate.
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.55cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 6.4 of OpenIntro Statistics
+\item Videos: To be posted
+\item Test yourself:
+\begin{enumerate}
+\item What are the null and alternative hypotheses in chi-square test of independence?
+\item Suppose a chi-square test of independence between two categorical variables (one with 5, the other with 3 levels) is yields a test statistic of $\chi^2 = 14$. What's the conclusion of the hypothesis test at 5\% significance level?
+\end{enumerate}
+\end{itemize}
+}}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Use simulation methods when sample size conditions aren't met for inference for categorical variables.
+\begin{itemize}
+\item[-] Note that the $t$-distribution is only appropriate to use for means, when sample size isn't sufficiently large, and the parameter of interest is a proportion or a difference between two proportions, we need to use simulation.
+\end{itemize}
+
+\item In hypothesis testing
+\begin{itemize}
+\item[-] for one categorical variable, generate simulated samples based on the null hypothesis, and then calculate the number of samples that are at least as extreme as the observed data.
+\item[-] for two categorical variables, use a randomization test.
+\end{itemize}
+
+\item Use bootstrap methods for confidence intervals for categorical variables with at most two levels. 
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.55cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Sections 6.5 and 6.6 of OpenIntro Statistics
+\item Test yourself:
+\begin{enumerate}
+\item Suppose you want to estimate the proportion of Duke students who smoke. You collect a random sample of 100 students, where only 8 of them smoke. Can you use theoretical methods (Z) to construct a confidence interval based on these data? If not, describe how you could calculate a 95\% bootstrap confidence interval.
+\end{enumerate}
+\end{itemize}
+}}
+
+
+\end{document}

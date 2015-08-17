@@ -1,0 +1,192 @@
+\documentclass[11pt]{article}
+\usepackage[top=1.5cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}            
+\usepackage{multirow}    
+\usepackage{multicol}    
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{enumitem}
+\usepackage{ulem}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\usepackage{xcolor}
+
+\definecolor{oiB}{rgb}{.337,.608,.741}
+\definecolor{oiR}{rgb}{.941,.318,.200}
+\definecolor{oiG}{rgb}{.298,.447,.114}
+\definecolor{oiY}{rgb}{.957,.863,0}
+
+\definecolor{light}{rgb}{.337,.608,.741}
+\definecolor{dark}{rgb}{.337,.608,.741}
+
+\usepackage[colorlinks=false,pdfborder={0 0 0},urlcolor= dark,colorlinks=true,linkcolor=black]{hyperref}
+
+\newcommand{\light}[1]{\textcolor{light}{\textbf{#1}}}
+\newcommand{\dark}[1]{\textcolor{dark}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+
+
+%\date{}                                           % Activate to display a given date or no date
+
+%
+
+\begin{document}
+
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 8: Multiple and logistic regression}} \\
+
+%
+\begin{enumerate}
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Define the multiple linear regression model as
+\[ \hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k \]
+where there are $k$ predictors (explanatory variables).
+
+\item Interpret the estimate for the intercept ($b_0$) as the expected value of $y$ when all predictors are equal to 0, on average.
+
+\item Interpret the estimate for a slope (say $b_1$) as ``All else held constant, for each unit increase in $x_1$, we would expect $y$ to increase/decrease on average by $b_1$."
+
+\item Define collinearity as a high correlation between two independent variables such that the two variables contribute redundant information to the model -- which is something we want to avoid in multiple linear regression.
+
+\item Note that $R^2$ will increase with each explanatory variable added to the model, regardless of whether or not the added variables is a meaningful predictor of the response variable. Therefore we use adjusted $R^2$, which applies a penalty for the number of predictors included in the model, to better assess the strength of a multiple linear regression model:
+\[ R^2 = 1 - \frac{Var(e_i) / (n - k - 1)}{Var(y_i) / (n - 1)} \]
+where $Var(e_i)$ measures the variability of residuals ($SS_{Err}$), $Var(y_i)$ measures the total variability in observed $y$ ($SS_{Tot}$), $n$ is the number of cases and $k$ is the number of predictors.
+\begin{itemize}
+\item[-] Note that adjusted $R^2$ will only increase if the added variable has a meaningful contribution to the amount of explained variability in $y$, i.e. if the gains from adding the variable exceeds the penalty.
+\end{itemize}
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.55cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 8.1 of OpenIntro Statistics
+\item Videos: To be posted
+\item Test yourself:
+\begin{enumerate}
+\item How is multiple linear regression different than simple linear regression?
+\item What does ``all else held constant" mean in the interpretation of a slope coefficient in multiple linear regression?
+\item What is collinearity? Why do we want to avoid collinearity in multiple regression models?
+\item Explain the difference between $R^2$ and adjusted $R^2$. Which one will be higher? Which one tells us the variability in $y$ explained by the model? Which one is a better measure of the strength of a linear regression model? Why?
+\end{enumerate}
+\end{itemize}
+}}
+
+%
+
+\vspace{0.48cm}
+
+%
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Define model selection as identifying the best model for predicting a given response variable. 
+
+\item Note that we usually prefer simpler (parsimonious) models over more complicated ones.
+
+\item Define the full model as the model with all explanatory variables included as predictors.
+
+\item Note that the p-values associated with each predictor are conditional on other variables being included in the model, so they can be used to assess if a given predictor is significant, given that all others are in the model.
+\begin{itemize}
+\item[-] These p-values are calculated based on a $t$ distribution with $n - k - 1$ degrees of freedom.
+\item[-] The same degrees of freedom can be used to construct a confidence interval for the slope parameter of each predictor:
+\[ b_i \pm t^\star_{n - k - 1} SE_{b_i} \]
+\end{itemize}
+
+\item Stepwise model selection (backward or forward) can be done based on p-values (drop variables that are not significant) or based on adjusted $R^2$ (choose the model with higher adjusted $R^2$).
+
+\item The general idea behind backward-selection is to start with the full model and eliminate one variable at a time until the ideal model is reached.
+\begin{itemize}
+\item[-] p-value method: 
+\begin{enumerate}
+\item[(i)] Start with the full model.
+\item[(ii)] Drop the variable with the highest p-value and refit the model.
+\item[(iiii)] Repeat until all remaining variables are significant.
+\end{enumerate}
+\item[-] adjusted $R^2$ method:
+ \begin{enumerate}
+\item[(i)] Start with the full model.
+\item[(ii)] Refit all possible models omitting one variable at a time, and choose the model with the highest adjusted $R^2$.
+\item[(iii)] Repeat until maximum possible adjusted $R^2$ is reached.
+\end{enumerate}
+\end{itemize}
+
+\item The general idea behind forward-selection is to start with only one variable and adding one variable at a time until the ideal model is reached.
+\begin{itemize}
+\item[-] p-value method: 
+\begin{enumerate}
+\item[(i)] Try all possible simple linear regression models predicting $y$ using one explanatory variable at a time. Choose the model where the explanatory variable of choice has the lowest p-value.
+\item[(ii)] Try all possible models adding one more explanatory variable at a time, and choose the model where the added explanatory variable has the lowest p-value.
+\item[(iii)] Repeat until all added variables are significant.
+\end{enumerate}
+\item[-] adjusted $R^2$ method:
+\begin{enumerate}
+\item[(i)] Try all possible simple linear regression models predicting $y$ using one explanatory variable at a time. Choose the model with the highest adjusted $R^2$.
+\item[(ii)] Try all possible models adding one more explanatory variable at a time, and choose the model with the highest adjusted $R^2$.
+\item[(iii)] Repeat until maximum possible adjusted $R^2$ is reached.
+\end{enumerate}
+\end{itemize}
+
+\item Adjusted $R^2$ method is more computationally intensive, but it is more reliable, since it doesn't depend on an arbitrary significant level.
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.55cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 8.2 of OpenIntro Statistics
+\item Videos: To be posted
+\item Test yourself:
+\begin{enumerate}
+\item Define the term ``parsimonious model".
+\item Describe the backward-selection algorithm using adjusted $R^2$ as the criterion for model selection.
+\end{enumerate}
+\end{itemize}
+}}
+
+%
+
+\vspace{0.48cm}
+
+%
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item List the conditions for multiple linear regression as
+\begin{enumerate}
+\item[(1)] linear relationship between each (numerical) explanatory variable and the response - checked using scatterplots of $y$ vs. each $x$, and residuals plots of $residuals$ vs. each $x$
+\item[(2)] nearly normal residuals with mean 0 - checked using a normal probability plot and histogram of residuals
+\item[(3)] constant variability of residuals - checked using residuals plots of $residuals$ vs. $\hat{y}$, and $residuals$ vs. each $x$
+\item[(4)] independence of residuals (and hence observations) - checked using a scatterplot of $residuals$ vs. order of data collection (will reveal non-independence if data have time series structure)
+\end{enumerate}
+
+\item Note that no model is perfect, but even imperfect models can be useful.
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.55cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 8.3 of OpenIntro Statistics
+\item Videos: To be posted
+\item Test yourself:
+\begin{enumerate}
+\item If a residuals plot ($residuals$ vs. $x$ or $residuals$ vs. $\hat{y}$) shows a fan shape, we worry about non-constant variability of residuals. What would the shape of these residuals look like if absolute value of residuals are plotted against a predictor or $\hat{y}$.
+\end{enumerate}
+\end{itemize}
+}}
+
+
+\end{document}
