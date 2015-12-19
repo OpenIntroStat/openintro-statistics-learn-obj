@@ -281,41 +281,4 @@ where $df = n - 2$ and $t^\star_{df}$ is the critical score associated with the 
 \end{itemize}
 }}
 
-
-
-\vspace{0.48cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Calculate a confidence interval for the average (expected) value of the response variable, $E(y)$, for a given $x^\star$ (within the range of the observed data) as
-\[ \hat{y} \pm t^\star_{n - 2} s \sqrt{\frac{1}{n} + \frac{(x^\star - \bar{x})^2}{\sum(x_i - \bar{x})^2} } \]
-where $s = \sqrt{MSE}$
-
-\item Calculate a prediction interval for the predicted value of the response variable, $\hat{y}$, for a given $x^\star$ (within the range of the observed data) as
-\[ \hat{y} \pm t^\star_{n - 2} s \sqrt{1 + \frac{1}{n} + \frac{(x^\star - \bar{x})^2}{\sum(x_i - \bar{x})^2} } \]
-where $s = \sqrt{MSE}$
-
-\item A prediction interval is similar in spirit to a confidence interval, except that the prediction interval is designed to cover a ``moving target", the random future value of $y$, while the confidence interval is designed to cover the ``fixed target", the average (expected) value of $y$, $E(y)$, for a given $x^\star$.
-
-\item Although both are centered at $\hat{y}$, the prediction interval is wider than the confidence interval, for a given $x^\star$ and confidence level. This makes sense, since the prediction interval must take account of the tendency of $y$ to fluctuate from its mean value, while the confidence interval simply needs to account for the uncertainty in estimating the mean value.
-
-\item For a given data set, the error in estimating $E(y)$ and $\hat{y}$ grows as $x^\star$ moves away from $\bar{x}$. Thus, the further $x^\star$ is from $\bar{x}$, the wider the confidence and prediction intervals will be.
-
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.55cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Video: \href{http://youtu.be/qVCQi0KPR0s}{Prediction and confidence intervals - Dr. \c{C}etinkaya-Rundel}, YouTube (10:17)
-\item Test yourself: Describe why prediction intervals are wider than confidence intervals, and why both get wider as we move away from the center of the data.
-\end{itemize}
-}}
-
-
-
 \end{document}
