@@ -44,9 +44,13 @@
 \begin{enumerate}
 \renewcommand\labelenumi{\textcolor{oiB}{\textbf{LO \theenumi.}}}
 
-\item Calculate the standardized (Z) score of a data point given the mean and standard deviation of its distribution.
+\item Define the standardized (Z) score of a data point as the number of standard deviations it is away from the mean: $Z = \frac{x - \mu}{\sigma}$.
 
-\item Use the Z score to determine the percentile score of a data point if the distribution is normal (using technology or normal probability tables), or to assess whether or not the particular observation would be considered unusual (regardless of the shape of the distribution).
+\item Use the Z score 
+\begin{itemize}
+\item[-] if the distribution is normal: to determine the percentile score of a data point (using technology or normal probability tables)
+\item[-] regardless of the shape of the distribution: to assess whether or not the particular observation is considered to be unusual (more than 2 standard deviations away from the mean) 
+\end{itemize}
 
 \item Depending on the shape of the distribution determine whether the median would have a negative, positive, or 0 Z score.
 
@@ -81,13 +85,21 @@
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{oiB}{\textbf{LO \theenumi.}}}
 
-\item Determine if a random variable is binomial using the four conditions.
+\item Determine if a random variable is binomial using the four conditions:
+\begin{itemize}
+\item[-] The trials are independent. 
+\item[-] The number of trials, n, is fixed. 
+\item[-] Each trial outcome can be classified as a success or failure. 
+\item[-] The probability of a success, p, is the same for each trial. 
+\end{itemize}
 
-\item Calculate the number of possible scenarios for obtaining $k$ successes in $n$ trials.
+\item Calculate the number of possible scenarios for obtaining $k$ successes in $n$ trials using the choose function: $n \choose k = \frac{n!}{k!~(n - k)!}$.
 
-\item Calculate probability of a given number of successes in a given number of trials using the binomial distribution.
+\item Calculate probability of a given number of successes in a given number of trials using the binomial distribution: $P(k = K) = \frac{n!}{k!~(n - k)!}~p^k~(1-p)^{(n - k)}$. 
 
-\item When number of trials is sufficiently large, use normal approximation to calculate binomial probabilities, and explain why this approach works.
+\item Calculate the expected number of successes in a given number of binomial trials $(\mu = np)$ and its standard deviation $(\sigma = \sqrt{np(1-p)})$.
+
+\item When number of trials is sufficiently large ($np \ge 10$ and $n(1-p) \ge 10$), use normal approximation to calculate binomial probabilities, and explain why this approach works.
 
 \end{enumerate}
 
