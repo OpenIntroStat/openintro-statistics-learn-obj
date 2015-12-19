@@ -45,9 +45,22 @@
 \begin{enumerate}
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Define observations as paired if each observation in one dataset has a special correspondence or connection with exactly one observation in the other data set.
+\item Use the $t$-distribution for inference on a single mean, difference of paired (dependent) means, and difference of independent means.
 
-\item Carry out inference for paired data by first subtracting the paired observations from each other, and then treating the set of differences as a new numerical variable on which to do inference (such as a confidence interval or hypothesis test for the average difference).
+\item Explain why the $t$-distribution helps make up for the additional variability introduced by using $s$ (sample standard deviation) in calculation of the standard error, in place of $\sigma$ (population standard deviation).
+
+\item Describe how the $t$-distribution is different from the normal distribution, and what “heavy tail” means in this context. 
+
+\item Note that the $t$-distribution has a single parameter, degrees of freedom, and as the degrees of freedom increases this distribution approaches the normal distribution. 
+
+\item Use a $t$-statistic, with degrees of freedom $df = n - 1$ for inference for a population mean:
+\begin{itemize}
+\item[-] Standard error: $SE = \frac{s}{\sqrt{n}}$
+\item[-] Confidence interval: $\bar{x} \pm t_{df}^\star SE$
+\item[-] Hypothesis test: $T_{df} = \frac{\bar{x} - \mu}{SE}$
+\end{itemize}
+
+\item Describe how to obtain a p-value for a $t$-test and a critical $t$-score ($t^\star_{df}$) for a confidence interval.
 
 \end{enumerate}
 
@@ -60,29 +73,37 @@
 %\item Videos: To be posted
 \item Test yourself:
 \begin{enumerate}
-\item 20 cardiac patients' blood pressure is measured before taking a medication, and after. For a given patient, are the before and after blood pressure measurements dependent (paired) or independent?
-\item A random sample of 100 students were obtained and then randomly assigned into two equal sized groups. One group went on a roller coaster while the other in a simulator at an amusement park. Afterwards their blood pressure measurements were taken. Are the measurements dependent (paired) or independent?
+\item What is the $t^\star$ for a 95\% confidence interval for a mean, where the sample size is 13.
+\item What is the p-value for a hypothesis test where the alternative hypothesis is two-sided, the sample size is 20, and the test statistic, T, is calculated to be 1.75? 
 \end{enumerate}
 \end{itemize}
 }}
 
-
 %
 
-\vspace{0.48cm}
+\vspace{0.25cm}
 
 %
 
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Calculate the standard error of the difference between means of two independent samples as
-\[ SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}, \]
-and use this standard error in hypothesis testing and confidence intervals comparing means of independent groups.
+\item Define observations as paired if each observation in one dataset has a special correspondence or connection with exactly one observation in the other data set. 
 
-\item Recognize that a good interpretation of a confidence interval for the difference between two parameters includes a comparative statement (mentioning which group has the larger parameter).
+\item Carry out inference for paired data by first subtracting the paired observations from each other, and then treating the set of differences as a new numerical variable on which to do inference (such as a confidence interval or hypothesis test for the average difference). 
 
-\item Recognize that a confidence interval for the difference between two parameters that doesn't include 0 is in agreement with a hypothesis test where the null hypothesis that sets the two parameters equal to each other is rejected.
+\item Calculate the standard error of the difference between means of two paired (dependent) samples as $SE = \frac{s_{diff}}{\sqrt{n_{diff}}}$ and use this standard error in hypothesis testing and confidence intervals comparing means of paired (dependent) groups. 
+
+\item Use a $t$-statistic, with degrees of freedom $df = n_{diff} - 1$ for inference for a population mean:
+\begin{itemize}
+\item[-] Standard error: $SE = \frac{s}{\sqrt{n}}$
+\item[-] Confidence interval: $\bar{x}_{diff} \pm t_{df}^\star SE$
+\item[-] Hypothesis test: $T_{df} = \frac{\bar{x}_{diff} - \mu_{diff}}{SE}$. Note that $\mu_{diff}$ is often 0, since often $H_0: \mu_{diff} = 0$.
+\end{itemize}
+
+\item Recognize that a good interpretation of a confidence interval for the difference between two parameters includes a comparative statement (mentioning which group has the larger parameter). 
+
+\item Recognize that a confidence interval for the difference between two parameters that doesn’t include 0 is in agreement with a hypothesis test where the null hypothesis that sets the two parameters equal to each other is rejected. 
 
 \end{enumerate}
 
@@ -95,36 +116,29 @@ and use this standard error in hypothesis testing and confidence intervals compa
 %\item Videos: To be posted
 \item Test yourself:
 \begin{enumerate}
-\item Describe how the two sample means test is different from the paired means test, both conceptually and in terms of the calculation of the standard error.
-\item A 95\% confidence interval for the difference between the number of calories consumed by mature and juvenile cats ($\mu_{mat} - \mu_{juv}$) is (80 calories, 100 calories). Interpret this interval, and determine if it suggests a significant difference between the two means.
+\item 20 cardiac patients' blood pressure is measured before taking a medication, and after. For a given patient, are the before and after blood pressure measurements dependent (paired) or independent?
+\item A random sample of 100 students were obtained and then randomly assigned into two equal sized groups. One group went on a roller coaster while the other in a simulator at an amusement park. Afterwards their blood pressure measurements were taken. Are the measurements dependent (paired) or independent?
 \end{enumerate}
 \end{itemize}
 }}
 
 %
 
-\vspace{0.48cm}
+\vspace{0.25cm}
 
 %
 
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Explain why means of small samples ($n < 30$) follow the t-distribution (instead of the normal, $z$, distribution).
+\item Calculate the standard error of the difference between means of two independent samples as $SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$, and use this standard error in hypothesis testing and confidence intervals comparing means of independent groups.
 
-\item Describe how the $t$-distribution is different from the normal distribution, and what ``heavy tail" means in this context.
-
-\item Note that the $t$-distribution has a single parameter, degrees of freedom, and as the degrees of freedom increases this distribution approaches the normal distribution.
-
-\item Use a $t$-statistic, with degrees of freedom $df = n - 1$ for inference for a population mean using data from a small sample:
-\[ \text{CI:}~\bar{x} \pm t^\star_{df} SE \qquad \qquad \text{HT:}~T_{df} = \frac{\bar{x} - \mu}{SE} \]
-where $SE = \frac{s}{\sqrt{n}}$.
-
-\item Use a $t$-statistic, with degrees of freedom $df = min(n_1 - 1, n_2 - 1)$ for inference for difference between means of two population means using data from two small samples, where $SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$.
-
-\item Make note of the pooled standard deviation but use it in very rare circumstances where the standard deviations of the populations being compared are known to be very similar.
-
-\item Describe how to use the $T$ table to obtain a p-value and a critical t-score ($t^\star_{df}$) for a confidence interval .
+\item Use a $t$-statistic, with degrees of freedom $df = min(n_1 - 1, n_2 - 1)$ for inference for a population mean:
+\begin{itemize}
+\item[-] Standard error: $\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$
+\item[-] Confidence interval: $(\bar{x}_1 - \bar{x}_2) \pm t_{df}^\star SE$
+\item[-] Hypothesis test: $T_{df} = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{SE}$. Note that $\mu_{diff}$ is often 0, since often $H_0: \mu_1 - \mu_2 = 0$.
+\end{itemize}
 
 \end{enumerate}
 
@@ -133,19 +147,35 @@ where $SE = \frac{s}{\sqrt{n}}$.
 \vspace{-0.55cm}
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 5.3 and 5.4 of OpenIntro Statistics
+\item Reading: Section 5.3 of OpenIntro Statistics
 %\item Videos: To be posted
 \item Test yourself:
 \begin{enumerate}
-\item What is the $t^\star$ for a 95\% confidence interval for a mean, where the sample size is 13.
-\item What is the p-value for a hypothesis test where the alternative hypothesis is two-sided, the sample size is 20, and the test statistic, T, is calculated to be 1.75?
+\item Describe how the two sample means test is different from the paired means test, both conceptually and in terms of the calculation of the standard error.
+\item A 95\% confidence interval for the difference between the number of calories consumed by mature and juvenile cats ($\mu_{mat} - \mu_{juv}$) is (80 calories, 100 calories). Interpret this interval, and determine if it suggests a significant difference between the two means.
 \end{enumerate}
 \end{itemize}
 }}
 
-\vspace{0.48cm}
+%
+
+\vspace{0.25cm}
 
 %
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Calculate the power of a test for a given effect size and significance level in two steps: (1) Find the cutoff for the sample statistic that will allow the null hypothesis to be rejected at the given significance level, (2) Calculate the probability of obtaining that sample statistic given the effect size.
+
+\item Explain how power changes for changes in effect size, sample size, significance level, and standard error.
+
+\end{enumerate}
+
+%
+
+\vspace{0.25cm}
+
 
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
