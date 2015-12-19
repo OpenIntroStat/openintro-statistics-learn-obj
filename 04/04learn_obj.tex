@@ -47,9 +47,7 @@
 
 \item Recognize that point estimates (such as the sample mean) will vary from one sample to another, and define this variability as sampling variation.
 
-\item Calculate the sampling variability of the mean, the standard error, as 
-\[ SE = \frac{\sigma}{\sqrt{n}}, \] 
-where $\sigma$ is the population standard deviation.
+\item Calculate the sampling variability of the mean, the standard error, as $SE = \frac{\sigma}{\sqrt{n}}$, where $\sigma$ is the population standard deviation.
 \begin{itemize}
 \item[-] Note that when the population standard deviation $\sigma$ is not known (almost always), this can be estimated using the sample standard deviation, $SE = \frac{s}{\sqrt{n}}$.
 \end{itemize}
@@ -132,6 +130,7 @@ then the distribution of the sample mean will be nearly normal, centered at the 
 \[ point~estimate \pm z^{\star} \times SE, \] 
 where $z^{\star}$ corresponds to the cutoff points in the standard normal distribution to capture the middle XX\% of the data, where XX\% is the desired confidence level.
 \begin{itemize}
+\item[-] For means this is $\bar{x} \pm Z^\star \frac{\sigma}{\sqrt{n}}$.
 \item[-] Note that $z^{\star}$ is always positive.
 \end{itemize}
 
@@ -334,11 +333,7 @@ In a random sample of 1,017 Americans 60\% said they do not trust the mass media
 
 \item Distinguish statistical significance vs. practical significance.
 
-\item Define power as the probability of correctly rejecting the null hypothesis (complement of Type 2 error), and calculate power of a hypothesis test using a two step process:
-\begin{enumerate}
-\item[i.] Find the cutoff value(s) for the point estimate in order to be able to reject the null hypothesis at the given significance level.
-\item[ii.] Find the probability of getting a random sample of size $n$ that yield the cutoff point estimate calculated in the previous step for a desired effect size.
-\end{enumerate}
+\item Define power as the probability of correctly rejecting the null hypothesis (complement of Type 2 error).
 
 \end{enumerate}
 
