@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  18 DEC 2015 19:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  7 JUL 2016 01:05
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -512,11 +512,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 357.
 Here is how much of TeX's memory you used:
  7443 strings out of 493089
  107334 string characters out of 6134842
- 210954 words of memory out of 5000000
+ 211058 words of memory out of 5000000
  10765 multiletter control sequences out of 15000+600000
  11392 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,5n,35p,454b,527s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,5n,35p,457b,527s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -529,7 +529,7 @@ texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
 live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on 04learn_obj.pdf (5 pages, 151844 bytes).
+Output written on 04learn_obj.pdf (5 pages, 151864 bytes).
 PDF statistics:
  147 PDF objects out of 1000 (max. 8388607)
  126 compressed objects within 2 object streams

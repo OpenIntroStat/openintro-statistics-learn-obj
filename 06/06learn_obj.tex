@@ -38,7 +38,7 @@
 
 \begin{document}
 
-{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 6: Inference for categorical variables}} \\
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 6: Inference for categorical data}} \\
 
 %
 \begin{enumerate}
@@ -71,14 +71,14 @@ and test statistics are calculated as
 
 \item Note that the standard error calculation for the confidence interval and the hypothesis test are different when dealing with proportions, since in the hypothesis test we need to assume that the null hypothesis is true -- remember: p-value = P(observed or more extreme test statistic $|$ $H_0$ true).
 \begin{itemize}
-\item[-] For confidence intervals use $\hat{p}$ (observed sample proportion) when calculating the standard error and checking the success/failure condition:
+\item[-] For confidence intervals use $\hat{p}$ (observed sample proportion) when calculating the standard error and when checking the success/failure condition:
 \[ SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]
 \item[-] For hypothesis tests use $p_0$ (null value) when calculating the standard error and checking the success/failure condition:
 \[ SE_{\hat{p}} = \sqrt{\frac{p_0 (1-p_0)}{n}} \]
 \item[-] Such a discrepancy doesn't exist when conducting inference for means, since the mean doesn't factor into the calculation of the standard error, while the proportion does.
 \end{itemize}
 
-\item Explain why when calculating the required minimum sample size for a given margin of error at a given confidence level, we use $\hat{p} = 0.5$ if there are no previous studies suggesting a more accurate estimate.
+\item Calculate the required minimum sample size for a given margin of error at a given confidence level, and explain why we use $\hat{p} = 0.5$ if there are no previous studies suggesting a more accurate estimate.
 \begin{itemize}
 \item[-] Conceptually: When there is no additional information, 50\% chance of success is a good guess for events with only two outcomes (success or failure).
 \item[-] Mathematically: Using $\hat{p} = 0.5$ yields the most conservative (highest) estimate for the required sample size.
@@ -117,7 +117,7 @@ and test statistics are calculated as
 
 \item Note that the calculation of the standard error of the distribution of the difference in two independent sample proportions is different for a confidence interval and a hypothesis test.
 \begin{itemize}
-\item[-] confidence interval and hypothesis test when $H_0: p_1 -p_2 =$ some value other than 0: 
+\item[-] confidence interval (and hypothesis test when $H_0: p_1 -p_2 =$ some value other than 0): 
 \[SE_{(\hat{p}_1 - \hat{p}_2)} = \sqrt{\frac{ \hat{p}_1 (1 - \hat{p}_1)}{n_1} + \frac{ \hat{p}_2 (1 - \hat{p}_2)}{n_2} } \]
 \item[-] hypothesis test when $H_0: p_1 -p_2 = 0$: 
 \[SE_{(\hat{p}_1 - \hat{p}_2)} = \sqrt{\frac{ \hat{p}_{pool} (1 - \hat{p}_{pool})}{n_1} + \frac{ \hat{p}_{pool} (1 - \hat{p}_{pool})}{n_2} }, \]
@@ -166,8 +166,8 @@ where $\hat{p}_{pool}$ is the overall rate of success:
 
 \item Use a chi-square test of goodness of fit to evaluate if the distribution of levels of a single categorical variable follows a hypothesized distribution.
 \begin{itemize}
-\item[] $H_0:$ The distribution of observed counts follow the hypothesized distribution, and any observed differences are due to chance.
-\item[] $H_A:$ The distribution of observed counts do not follow the hypothesized distribution.
+\item[] $H_0:$ The distribution of the variable follows the hypothesized distribution, and any observed differences are due to chance.
+\item[] $H_A:$ The distribution of the variable does not follow the hypothesized distribution.
 \end{itemize}
 
 \item Calculate the expected counts for a given level (cell) in a one-way table as the sample size times the hypothesized proportion for that level.
@@ -176,7 +176,7 @@ where $\hat{p}_{pool}$ is the overall rate of success:
 \[ \chi = \sum_{i = 1}^{k}  \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}, \]
 where $k$ is the number of cells.
 
-\item Note that the chi-square distribution is right skewed with one parameter: degrees of freedom. In the case of a goodness of fit test, $df = k - 1$.
+\item Note that the chi-square distribution is right skewed with one parameter: degrees of freedom. In the case of a goodness of fit test, $df = \# \text{of categories} - 1$.
 
 \item List the conditions necessary for performing a chi-square test (goodness of fit or independence)
 \begin{enumerate}
