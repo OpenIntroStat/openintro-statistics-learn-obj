@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  22 SEP 2019 20:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  22 SEP 2019 23:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -499,48 +499,49 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 49.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+<figures/no_labels.pdf, id=4, 361.35pt x 216.81pt>
+File: figures/no_labels.pdf Graphic file (type pdf)
+ <use figures/no_labels.pdf>
+Package pdftex.def Info: figures/no_labels.pdf used on input line 103.
+(pdftex.def)             Requested size: 200.19054pt x 120.11594pt.
+
+[1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<figures/no_labels.pdf, id=26, 361.35pt x 216.81pt>
-File: figures/no_labels.pdf Graphic file (type pdf)
-
-<use figures/no_labels.pdf>
-Package pdftex.def Info: figures/no_labels.pdf used on input line 108.
-(pdftex.def)             Requested size: 200.19054pt x 120.11594pt.
- [2 <./figures/no_labels.pdf>]
-<figures/nonconstant_var.pdf, id=46, 361.35pt x 216.81pt>
+[2 <./figures/no_labels.pdf>]
+<figures/nonconstant_var.pdf, id=44, 361.35pt x 216.81pt>
 File: figures/nonconstant_var.pdf Graphic file (type pdf)
 
 <use figures/nonconstant_var.pdf>
-Package pdftex.def Info: figures/nonconstant_var.pdf used on input line 187.
+Package pdftex.def Info: figures/nonconstant_var.pdf used on input line 181.
 (pdftex.def)             Requested size: 200.19054pt x 120.11594pt.
  [3 <./figures/nonconstant_var.pdf>]
 <figures/outliers.pdf, id=65, 361.35pt x 216.81pt>
 File: figures/outliers.pdf Graphic file (type pdf)
  <use figures/outliers.pdf>
-Package pdftex.def Info: figures/outliers.pdf used on input line 223.
+Package pdftex.def Info: figures/outliers.pdf used on input line 216.
 (pdftex.def)             Requested size: 250.24199pt x 150.14491pt.
 
 [4 <./figures/outliers.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 284.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 276.
  [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 284.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 276.
  (./08learn_obj.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 284.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 284.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 276.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 276.
 Package rerunfilecheck Info: File `08learn_obj.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 284.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 276.
  ) 
 Here is how much of TeX's memory you used:
- 7504 strings out of 492995
- 108480 string characters out of 6132704
+ 7503 strings out of 492995
+ 108468 string characters out of 6132704
  212711 words of memory out of 5000000
- 10902 multiletter control sequences out of 15000+600000
+ 10901 multiletter control sequences out of 15000+600000
  9347 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,7n,35p,390b,568s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,7n,35p,390b,611s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -551,10 +552,10 @@ ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
 l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
 exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on 08learn_obj.pdf (5 pages, 144338 bytes).
+Output written on 08learn_obj.pdf (5 pages, 142922 bytes).
 PDF statistics:
- 140 PDF objects out of 1000 (max. 8388607)
- 115 compressed objects within 2 object streams
+ 138 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
  43 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

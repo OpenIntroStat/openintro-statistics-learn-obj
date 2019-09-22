@@ -34,197 +34,305 @@
 
 %\date{}                                           % Activate to display a given date or no date
 
-%
-
 \begin{document}
 
-{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 5: Inference for numerical data}} \\
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 4: Framework for inference}} \\
 
 %
 
 \begin{enumerate}
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Use the $t$-distribution for inference on a single mean, difference of paired (dependent) means, and difference of independent means.
+\item Define sample statistic as a point estimate for a population parameter, for example, the sample mean is used to estimate the population mean, and note that point estimate and sample statistic are synonymous.
 
-\item Explain why the $t$-distribution helps make up for the additional variability introduced by using $s$ (sample standard deviation) in calculation of the standard error, in place of $\sigma$ (population standard deviation).
+\item Recognize that point estimates (such as the sample mean) will vary from one sample to another, and define this variability as sampling variation.
 
-\item Describe how the $t$-distribution is different from the normal distribution, and what “heavy tail” means in this context. 
-
-\item Note that the $t$-distribution has a single parameter, degrees of freedom, and as the degrees of freedom increases this distribution approaches the normal distribution. 
-
-\item Use a $t$-statistic, with degrees of freedom $df = n - 1$ for inference for a population mean:
+\item Calculate the sampling variability of the mean, the standard error, as $SE = \frac{\sigma}{\sqrt{n}}$, where $\sigma$ is the population standard deviation.
 \begin{itemize}
-\item[-] Standard error: $SE = \frac{s}{\sqrt{n}}$
-\item[-] Confidence interval: $\bar{x} \pm t_{df}^\star SE$
-\item[-] Hypothesis test: $T_{df} = \frac{\bar{x} - \mu}{SE}$
+\item[-] Note that when the population standard deviation $\sigma$ is not known (almost always), this can be estimated using the sample standard deviation, $SE = \frac{s}{\sqrt{n}}$.
 \end{itemize}
 
-\item Describe how to obtain a p-value for a $t$-test and a critical $t$-score ($t^\star_{df}$) for a confidence interval.
+\item Distinguish standard deviation ($\sigma$ or $s$) and standard error ($SE$): standard deviation measures the variability in the data, while standard error measures the variability in point estimates from different samples of the same size and from the same population, i.e. measures the sampling variability.
 
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.55cm}
+\item Recognize that when the sample size increases we would expect the sampling variability to decrease.
 \begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 5.1 of OpenIntro Statistics
-%\item Videos: To be posted
-\item Test yourself:
-\begin{enumerate}
-\item What is the $t^\star$ for a 95\% confidence interval for a mean, where the sample size is 13.
-\item What is the p-value for a hypothesis test where the alternative hypothesis is two-sided, the sample size is 20, and the test statistic, T, is calculated to be 1.75? 
-\end{enumerate}
-\end{itemize}
-}}
-
-%
-
-\vspace{0.48cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Define observations as paired if each observation in one dataset has a special correspondence or connection with exactly one observation in the other data set. 
-
-\item Carry out inference for paired data by first subtracting the paired observations from each other, and then treating the set of differences as a new numerical variable on which to do inference (such as a confidence interval or hypothesis test for the average difference). 
-
-\item Calculate the standard error of the difference between means of two paired (dependent) samples as $SE = \frac{s_{diff}}{\sqrt{n_{diff}}}$ and use this standard error in hypothesis testing and confidence intervals comparing means of paired (dependent) groups. 
-
-\item Use a $t$-statistic, with degrees of freedom $df = n_{diff} - 1$ for inference for a population mean:
-\begin{itemize}
-\item[-] Standard error: $SE = \frac{s}{\sqrt{n}}$
-\item[-] Confidence interval: $\bar{x}_{diff} \pm t_{df}^\star SE$
-\item[-] Hypothesis test: $T_{df} = \frac{\bar{x}_{diff} - \mu_{diff}}{SE}$. Note that $\mu_{diff}$ is often 0, since often $H_0: \mu_{diff} = 0$.
-\end{itemize}
-
-\item Recognize that a good interpretation of a confidence interval for the difference between two parameters includes a comparative statement (mentioning which group has the larger parameter). 
-
-\item Recognize that a confidence interval for the difference between two parameters that doesn’t include 0 is in agreement with a hypothesis test where the null hypothesis that sets the two parameters equal to each other is rejected. 
-
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.55cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 5.2 of OpenIntro Statistics
-%\item Videos: To be posted
-\item Test yourself:
-\begin{enumerate}
-\item 20 cardiac patients' blood pressure is measured before taking a medication, and after. For a given patient, are the before and after blood pressure measurements dependent (paired) or independent?
-\item A random sample of 100 students were obtained and then randomly assigned into two equal sized groups. One group went on a roller coaster while the other in a simulator at an amusement park. Afterwards their blood pressure measurements were taken. Are the measurements dependent (paired) or independent?
-\end{enumerate}
-\end{itemize}
-}}
-
-%
-
-\vspace{0.48cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Calculate the standard error of the difference between means of two independent samples as $SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$, and use this standard error in hypothesis testing and confidence intervals comparing means of independent groups.
-
-\item Use a $t$-statistic, with degrees of freedom $df = min(n_1 - 1, n_2 - 1)$ for inference for a population mean:
-\begin{itemize}
-\item[-] Standard error: $\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$
-\item[-] Confidence interval: $(\bar{x}_1 - \bar{x}_2) \pm t_{df}^\star SE$
-\item[-] Hypothesis test: $T_{df} = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{SE}$. Note that $\mu_{diff}$ is often 0, since often $H_0: \mu_1 - \mu_2 = 0$.
+\item[-] Conceptually: Imagine taking many samples from the population. When sample sizes are large the sample means will be much more consistent across samples than when the sample sizes are small.
+\item[-] Mathematically: $SE = \frac{\sigma}{\sqrt{n}}$, when $n$ increases, $SE$ will decrease since $n$ is in the denominator.
 \end{itemize}
 
 \end{enumerate}
 
 \gray{
 {\it
-\vspace{-0.55cm}
+\vspace{-0.5cm}
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 5.3 of OpenIntro Statistics
-%\item Videos: To be posted
-\item Test yourself:
+\item Reading: Section 4.1 of OpenIntro Statistics
+\item Test yourself: 
+{\small
 \begin{enumerate}
-\item Describe how the two sample means test is different from the paired means test, both conceptually and in terms of the calculation of the standard error.
-\item A 95\% confidence interval for the difference between the number of calories consumed by mature and juvenile cats ($\mu_{mat} - \mu_{juv}$) is (80 calories, 100 calories). Interpret this interval, and determine if it suggests a significant difference between the two means.
+\item For each of the following situations, state whether the variable is categorical or numerical, and whether the parameter of interest is a mean or a proportion.
+\begin{enumerate}
+\item In a survey, college students are asked whether they agree with their parents' political ideology.  
+\item In a survey, college students are asked what percentage of their non-class time they spend studying.
 \end{enumerate}
+\item Suppose heights of all women in the US have a mean of 63.7 inches, and a random sample of 100 women's heights yield a sample mean of 65.2 inches. Which one is the population parameter and which one is the point estimate? Which one is $\mu$ and which one is $\bar{x}$?
+\item Suppose heights of all women in the US have a standard deviation of 2.7 inches, and a random sample of 100 women's heights yields a standard deviation of 4 inches. Which one is the population parameter and which one is the point estimate? Which one is $\sigma$ and which one is $s$?
+\item Explain, in plain English, the difference between standard deviation and standard error.
+\item Suppose heights of all men in the US have a mean of 69.1 inches and a standard deviation of 2.9 inches. Would a randomly selected man who is 72 inches tall be considered unusually tall? Would it be unusual to have a random sample of 100 men where the sample average is 72 inches?
+\end{enumerate}
+}
 \end{itemize}
 }}
 
+
 %
 
-\vspace{0.48cm}
+\vspace{0.5cm}
 
 %
 
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Calculate the power of a test for a given effect size and significance level in two steps: (1) Find the cutoff for the sample statistic that will allow the null hypothesis to be rejected at the given significance level, (2) Calculate the probability of obtaining that sample statistic given the effect size.
+\item Define a confidence interval as the plausible range of values for a population parameter.
 
-\item Explain how power changes for changes in effect size, sample size, significance level, and standard error.
+\item Define the confidence level as the percentage of random samples which yield confidence intervals that capture the true population parameter.
 
-\end{enumerate}
+\item Calculate an approximate 95\% confidence interval by adding and subtracting 2 standard errors to the point estimate: $point~estimate \pm 2 \times SE$.
 
-%
-
-\vspace{0.48cm}
-
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Define analysis of variance (ANOVA) as a statistical inference method that is used to determine if the variability in the sample means is so large that it seems unlikely to be from chance alone by simultaneously considering many groups at once.
-
-\item Recognize that the null hypothesis in ANOVA sets all means equal to each other, and the alternative hypothesis suggest that at least one mean is different.
+\item Recognize that the Central Limit Theorem (CLT) is about the distribution of point estimates, and that given certain conditions, this distribution will be nearly normal.
 \begin{itemize}
-\item[] $H_0: \mu_1 = \mu_2 = \cdots = \mu_k$
-\item[] $H_A:$ At least one mean is different
-\end{itemize} 
+\item[-] In the case of the mean the CLT tells us that if
+\begin{itemize}[parsep=0pt]
+\item[(1a)] the sample size is sufficiently large $(n \ge 30)$ and the data are not extremely skewed or
+\item[(1b)] the population is known to have a normal distribution, and
+\item[(2)] the observations in the sample are independent,
+\end{itemize}
+then the distribution of the sample mean will be nearly normal, centered at the true population mean and with a standard error of $\frac{\sigma}{\sqrt{n}}$.
+\[ \bar{x} \sim N \left( mean = \mu, SE = \frac{\sigma}{\sqrt{n}} \right) \]
+\item[-] When the population distribution is unknown, condition (1a) can be checked using a histogram or some other visualization of the distribution of the observed data in the sample.
+\item[-] The larger the sample size ($n$), the less important that the shape of the distribution becomes, i.e. when $n$ is very large the sampling distribution will be nearly normal regardless of the shape of the population distribution.
+\end{itemize}
 
-\item List the conditions necessary for performing ANOVA
-\begin{enumerate}
-\item[(1)] the observations should be independent within and across groups
-\item[(2)] the data within each group are nearly normal
-\item[(3)] the variability across the groups is about equal
-\end{enumerate}
-and check if they are met using graphical diagnostics.
-
-\item Recognize that the test statistic for ANOVA, the F statistic, is calculated as the ratio of the mean square between groups (MSG, variability between groups) and mean square error (MSE, variability within errors), and has two degrees of freedom, one for the numerator ($df_{G} = k - 1$, where $k$ is the number of groups) and one for the denominator ($df_{E} = n - k$, where $n$ is the total sample size).
+\item Recall that independence of observations in a sample is provided by random sampling (in the case of observational studies) or random assignment (in the case of experiments).
 \begin{itemize}
-\item[-] Note that you won't be expected to calculate MSG or MSE from the raw data, but you should have a conceptual understanding of how they're calculated and what they measure.
-\end{itemize} 
+\item[-] In addition, the sample should not be \textit{too} large compared to the population, or more precisely, should be smaller than 10\% of the population, since samples that are too large will likely contain observations that are not independent.
+\end{itemize}
 
-\item Describe why calculation of the p-value for ANOVA is always ``one sided".
+\item Recognize that the nearly normal distribution of the point estimate (as suggested by the CLT) implies that a more precise confidence interval can be calculated as
+\[ point~estimate \pm z^{\star} \times SE, \] 
+where $z^{\star}$ corresponds to the cutoff points in the standard normal distribution to capture the middle XX\% of the data, where XX\% is the desired confidence level.
+\begin{itemize}
+\item[-] For means this is $\bar{x} \pm Z^\star \frac{\sigma}{\sqrt{n}}$.
+\item[-] Note that $z^{\star}$ is always positive.
+\end{itemize}
 
-\item Describe why conducting many $t$-tests for differences between each pair of means leads to an increased Type 1 Error rate, and we use a corrected significance level (Bonferroni corection, $\alpha^\star = \alpha / K$, where $K$ is the e number of comparisons being considered) to combat inflating this error rate.
+\item Define margin of error as the distance required to travel in either direction away from the point estimate when constructing a confidence interval, i.e. $z^{\star} \times SE$.
+\begin{itemize}
+\item[-] Notice that this corresponds to half the width of the confidence interval.
+\end{itemize}
 
-\item Describe why it is possible to reject the null hypothesis in ANOVA but not find significant differences between groups as a result of pairwise comparisons.
+\item Interpret a confidence interval as ``We are XX\% confident that the true population parameter is in this interval", where XX\% is the desired confidence level.
+\begin{itemize}
+\item[-] Note that your interpretation must always be in context of the data -- mention what the population is and what the parameter is (mean or proportion).
+\end{itemize}
+
 
 \end{enumerate}
 
 \gray{
 {\it
-\vspace{-0.55cm}
+\vspace{-0.5cm}
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 5.5 of OpenIntro Statistics
-%\item Videos: To be posted
-\item Test yourself:
+\item Reading: Section 4.2 of OpenIntro Statistics
+\item Test yourself: 
+{\small
 \begin{enumerate}
-\item We would like to compare the average income of Americans who live in the Northeast, Midwest, South, and West. What are the appropriate hypotheses?
-\item Suppose the sample in the question above has 1000 observations, what are the degrees of freedom associated with the F-statistic?
-\item Suppose the null hypothesis is rejected. Describe how we would discover which regions' averages are different from each other? Make sure to discuss how many pairwise comparisons we would need to make, and what the corrected significance level would be.
-\item What visualizations are useful for checking each of the conditions required for performing ANOVA?
+\item Explain, in plain English, what is going on in Figure 4.8 of the book (page 166).
+\item List the conditions necessary for the CLT to hold. Make sure to list alternative conditions for when we know the population distribution is normal vs. when we don't know what the population distribution is, and the when the sample size is barely over 30 vs. when it's very large.
+\item Confirm that $z^{\star}$ for a 98\% confidence level is 2.33. (Include a sketch of the normal curve in your response.)
+\item Calculate a 95\% confidence interval for the average height of US women using a random sample of 100 women where the sample mean is 63 inches and the sample standard deviation is 3 inches, and interpret this interval in context of the data.
+\item Explain, in plain English, the difference between standard error and margin of error.
+\item A little more challenging: Suppose heights of all men in the US have a mean of 69.1 inches and a standard deviation of 2.9 inches. What is the probability that a random sample of 100 men will yield a sample average less than 70 inches?\\ 
+Hint: First check if we should expect the sample mean to be distributed nearly normally, i.e. if the CLT holds. If so, sketch a normal curve with mean $\mu$ and the appropriate standard error. Shade the area you're interested in, and calculate it using methods we learned in the previous unit. 
 \end{enumerate}
+}
 \end{itemize}
 }}
 
+%
+
+\vspace{0.5cm}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Explain how the hypothesis testing framework resembles a court trial.
+
+\item Recognize that in hypothesis testing we evaluate two competing claims: 
+\begin{itemize}
+\item[-] the null hypothesis, which represents a skeptical perspective or the status quo, and 
+\item[-] the alternative hypothesis, which represents an alternative under consideration and is often represented by a range of possible parameter values.
+\end{itemize}
+
+\item Construction of hypotheses:
+\begin{itemize}
+\item[-] Always construct hypotheses about population parameters (e.g. population mean, $\mu$) and not the sample statistics (e.g. sample mean, $\bar{x}$). Note that the population parameter is unknown while the sample statistic is measured using the observed data and hence there is no point in hypothesizing about it.
+\item[-] Define the null value as the value the parameter is set to equal in the null hypothesis.
+\item[-] Note that the alternative hypothesis might be one-sided ($\mu$ $<$ or $>$ the null value) or two-sided ($\mu$ $\ne$ the null value), and the choice depends on the research question.
+\end{itemize}
+
+\item Define a p-value as the conditional probability of obtaining a sample statistic at least as extreme as the one observed given that the null hypothesis is true.
+\[ \text{p-value} = \text{P(observed or more extreme sample statistic}~|~H_0 \text{ true)} \]
+
+\item Calculate a p-value as the area under the normal curve beyond the observed sample mean (either in one tail or both, depending on the alternative hypothesis). Note that in doing so you can use a Z score, where
+\[ Z = \frac{sample~statistic - null~value}{SE} = \frac{\bar{x} - \mu_0}{SE} \]
+\begin{itemize}
+\item[-] Always sketch the normal curve when calculating the p-value, and shade the appropriate area(s) depending on whether the alternative hypothesis is one- or two-sided.
+\end{itemize}
+
+\item Infer that if a confidence interval does not contain the null value the null hypothesis should be rejected in favor of the alternative.
+
+\item Compare the p-value to the significance level to make a decision between the hypotheses:
+\begin{itemize}
+\item[-] If the p-value $<$ the significance level, reject the null hypothesis since this means that obtaining a sample statistics at least as extreme as the observed data is extremely unlikely to happen just by chance, and conclude that the data provides evidence for the alternative hypothesis.
+\item[-] If the p-value $>$ the significance level, fail to reject the null hypothesis since this means that obtaining a sample statistics at least as extreme as the observed data is quite likely to happen by chance, and conclude that the data does not provide evidence for the alternative hypothesis.
+\item[-] Note that we can never ``accept" the null hypothesis since the hypothesis testing framework does not allow us to confirm it.
+\end{itemize}
+
+\item Note that the conclusion of a hypothesis test might be erroneous regardless of the decision we make.
+\begin{itemize}
+\item[-] Define a Type 1 error as rejecting the null hypothesis when the null hypothesis is actually true.
+\item[-] Define a Type 2 error as failing to reject the null hypothesis when the alternative hypothesis is actually true.
+\end{itemize}
+
+\item Choose a significance level depending on the risks associated with Type 1 and Type 2 errors.
+\begin{itemize}
+\item[-] Use a smaller $\alpha$ is Type 1 error is relatively riskier.
+\item[-] Use a larger $\alpha$ is Type 2 error is relatively riskier.
+\end{itemize}
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.5cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 4.3 of OpenIntro Statistics
+\item Test yourself: 
+{\small
+\begin{enumerate}
+\item List errors in the following hypotheses: $H_0: \bar{x} > 20$ and $H_A: \bar{x} \ge 25$
+\item What is wrong with the following statement? \\
+``If p-value is large we accept the null hypothesis since a large p-value implies that the observed difference between the null value and the sample statistic is quite likely to happen just by chance."
+\item Suppose a researcher is interested in evaluating the following claim ``The average height of adult males in the US is 69.1 inches", and that she believes this is an underestimate.
+\begin{enumerate}
+\item How should she set up her hypotheses? 
+\item Explain to her, in plain language, how she should collect data and carry out a hypothesis test.
+\item Suppose she collects a sample of 40 adult males, and finds a sample average of 70.2 inches, and a p-value of 0.0082. What should she conclude?
+\item Interpret this p-value (as a conditional probability) in context of the question.
+\item Suppose that the true average is in fact 69.1 inches, what type of an error has this researcher made? In order to avoid making such an error should she have used a smaller or a large significance level?
+\end{enumerate}
+\item Go back to Section 1.8 and describe the differences and similarities between the hypothesis testing procedure using simulation and using theory. Especially discuss how the calculation of the p-value changes while the definition stays the same.
+\end{enumerate}
+}
+\end{itemize}
+}}
+
+%
+
+\vspace{0.5cm}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Notice that sampling distributions of point estimates coming from samples that don't meet the required conditions for the CLT (about sample size, skew, and independence) will not be normal.
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.5cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 4.4 of OpenIntro Statistics
+\item Test yourself: \\
+{\small
+ Explain what is going on in Figure 4.20 of the book (page 186).
+}
+\end{itemize}
+}}
+
+%
+
+\vspace{0.5cm}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Formulate the framework for statistical inference using hypothesis testing and nearly normal point estimates:
+\begin{enumerate}
+\item[(1)] Set up the hypotheses first in plain language and then using appropriate notation.
+\item[(2)] Identify the appropriate sample statistic that can be used as a point estimate for the parameter of interest.
+\item[(3)] Verify that the conditions for the CLT holds.
+\item[(4)] Compute the SE, sketch the sampling distribution, and shade area(s) representing the p-value.
+\item[(5)] Using the sketch and the normal model, calculate the p-value and determine if the null hypothesis should be rejected or not, and state your conclusion in context of the data and the research question.
+\end{enumerate}
+
+\item If the conditions necessary for the CLT to hold are not met, note this and do not go forward with the analysis. (We will later learn about methods to use in these situations.)
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.5cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 4.5 of OpenIntro Statistics
+\item Test yourself: \\
+{\small
+In a random sample of 1,017 Americans 60\% said they do not trust the mass media when it comes to reporting the news fully, accurately, and fairly. The standard error associated with this estimate is 0.015 (1.5\%). What is the margin of error for a 95\% confidence level? Calculate a 95\% confidence interval and interpret it in context. You may assume that the point estimate is normally distributed (we'll learn how to check this later).
+}
+\end{itemize}
+}}
+
+%
+
+\vspace{0.5cm}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Calculate the required sample size to obtain a given margin of error at a given confidence level by working backwards from the given margin of error.
+
+\item Distinguish statistical significance vs. practical significance.
+
+\item Define power as the probability of correctly rejecting the null hypothesis (complement of Type 2 error).
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.5cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 4.6 of OpenIntro Statistics (excluding Section 4.6.3)
+\item Test yourself: \\
+{\small
+If we want to decrease the margin of error, and hence have a more precise confidence interval, should we increase or decrease the sample size?
+}
+\end{itemize}
+}}
 
 \end{document}
