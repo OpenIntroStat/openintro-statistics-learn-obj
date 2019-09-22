@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  22 SEP 2019 20:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  22 SEP 2019 23:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -500,45 +500,45 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 47.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 66--66
+Underfull \hbox (badness 10000) in paragraph at lines 65--65
 
  []
 
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 118--118
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 115.
 [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 115.
  (./01learn_obj.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 122.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 115.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 115.
 Package rerunfilecheck Info: File `01learn_obj.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 122.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 115.
  ) 
 Here is how much of TeX's memory you used:
- 7463 strings out of 492995
- 107913 string characters out of 6132704
+ 7461 strings out of 492995
+ 107893 string characters out of 6132704
  212711 words of memory out of 5000000
- 10890 multiletter control sequences out of 15000+600000
+ 10888 multiletter control sequences out of 15000+600000
  9992 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,5n,35p,362b,419s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,5n,35p,362b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
 /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
 sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
 r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
 /local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on 01learn_obj.pdf (2 pages, 82143 bytes).
+Output written on 01learn_obj.pdf (2 pages, 79761 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  17 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
