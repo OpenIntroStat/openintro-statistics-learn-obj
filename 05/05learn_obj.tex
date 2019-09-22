@@ -36,29 +36,31 @@
 
 \begin{document}
 
-{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 4: Framework for inference}} \\
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 5: Foundations for inference}} \\
 
 %
 
 \begin{enumerate}
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Define sample statistic as a point estimate for a population parameter, for example, the sample mean is used to estimate the population mean, and note that point estimate and sample statistic are synonymous.
+\item Define sample statistic as a point estimate for a population parameter, for example, the sample proportion is used to estimate the population proportion, and note that point estimate and sample statistic are synonymous.
 
-\item Recognize that point estimates (such as the sample mean) will vary from one sample to another, and define this variability as sampling variation.
+\item Recognize that point estimates (such as the sample proportion) will vary from one sample to another, and define this variability as sampling variation.
 
-\item Calculate the sampling variability of the mean, the standard error, as $SE = \frac{\sigma}{\sqrt{n}}$, where $\sigma$ is the population standard deviation.
+\item Calculate the sampling variability of the proportion, the standard error, as $SE = \sqrt{\frac{p(1-p)}{n}}$, where $p$ is the population proportion.
 \begin{itemize}
-\item[-] Note that when the population standard deviation $\sigma$ is not known (almost always), this can be estimated using the sample standard deviation, $SE = \frac{s}{\sqrt{n}}$.
+\item[-] Note that when the population proportion $p$ is not known (almost always), this can be estimated using the sample proportion, $SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$.
 \end{itemize}
 
-\item Distinguish standard deviation ($\sigma$ or $s$) and standard error ($SE$): standard deviation measures the variability in the data, while standard error measures the variability in point estimates from different samples of the same size and from the same population, i.e. measures the sampling variability.
+\item Standard error measures the variability in point estimates from different samples of the same size and from the same population, i.e. measures the sampling variability.
 
 \item Recognize that when the sample size increases we would expect the sampling variability to decrease.
 \begin{itemize}
-\item[-] Conceptually: Imagine taking many samples from the population. When sample sizes are large the sample means will be much more consistent across samples than when the sample sizes are small.
-\item[-] Mathematically: $SE = \frac{\sigma}{\sqrt{n}}$, when $n$ increases, $SE$ will decrease since $n$ is in the denominator.
+\item[-] Conceptually: Imagine taking many samples from the population. When sample sizes are large the sample proportion will be much more consistent across samples than when the sample sizes are small.
+\item[-] Mathematically: $SE = ≈$, when $n$ increases, $SE$ will decrease since $n$ is in the denominator.
 \end{itemize}
+
+\item Notice that sampling distributions of point estimates coming from samples that don't meet the required conditions for the CLT (about sample size and independence) will not be normal.
 
 \end{enumerate}
 
@@ -67,7 +69,7 @@
 \vspace{-0.5cm}
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.1 of OpenIntro Statistics
+\item Reading: Section 5.1 of OpenIntro Statistics
 \item Test yourself: 
 {\small
 \begin{enumerate}
@@ -76,10 +78,7 @@
 \item In a survey, college students are asked whether they agree with their parents' political ideology.  
 \item In a survey, college students are asked what percentage of their non-class time they spend studying.
 \end{enumerate}
-\item Suppose heights of all women in the US have a mean of 63.7 inches, and a random sample of 100 women's heights yield a sample mean of 65.2 inches. Which one is the population parameter and which one is the point estimate? Which one is $\mu$ and which one is $\bar{x}$?
-\item Suppose heights of all women in the US have a standard deviation of 2.7 inches, and a random sample of 100 women's heights yields a standard deviation of 4 inches. Which one is the population parameter and which one is the point estimate? Which one is $\sigma$ and which one is $s$?
-\item Explain, in plain English, the difference between standard deviation and standard error.
-\item Suppose heights of all men in the US have a mean of 69.1 inches and a standard deviation of 2.9 inches. Would a randomly selected man who is 72 inches tall be considered unusually tall? Would it be unusual to have a random sample of 100 men where the sample average is 72 inches?
+\item Explain what is going on in Figures 5.4 and 5.5 of the book (pages 176 and 177).
 \end{enumerate}
 }
 \end{itemize}
@@ -103,16 +102,14 @@
 
 \item Recognize that the Central Limit Theorem (CLT) is about the distribution of point estimates, and that given certain conditions, this distribution will be nearly normal.
 \begin{itemize}
-\item[-] In the case of the mean the CLT tells us that if
+\item[-] In the case of the proportion the CLT tells us that if
 \begin{itemize}[parsep=0pt]
-\item[(1a)] the sample size is sufficiently large $(n \ge 30)$ and the data are not extremely skewed or
-\item[(1b)] the population is known to have a normal distribution, and
-\item[(2)] the observations in the sample are independent,
+\item[(1)] the observations in the sample are independent, and
+\item[(2)] there are at least 10 successes and 10 failures,
 \end{itemize}
-then the distribution of the sample mean will be nearly normal, centered at the true population mean and with a standard error of $\frac{\sigma}{\sqrt{n}}$.
-\[ \bar{x} \sim N \left( mean = \mu, SE = \frac{\sigma}{\sqrt{n}} \right) \]
-\item[-] When the population distribution is unknown, condition (1a) can be checked using a histogram or some other visualization of the distribution of the observed data in the sample.
-\item[-] The larger the sample size ($n$), the less important that the shape of the distribution becomes, i.e. when $n$ is very large the sampling distribution will be nearly normal regardless of the shape of the population distribution.
+then the distribution of the sample proportion will be nearly normal, centered at the true population proportion and with a standard error of $\sqrt{\frac{p(1-p)}{n}}$.
+\[ \hat{p} \sim N \left( mean = p, SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \right) \]
+\item[-] When the population proportion is unknown, condition (2) can be checked using the sample proportion.
 \end{itemize}
 
 \item Recall that independence of observations in a sample is provided by random sampling (in the case of observational studies) or random assignment (in the case of experiments).
@@ -124,7 +121,7 @@ then the distribution of the sample mean will be nearly normal, centered at the 
 \[ point~estimate \pm z^{\star} \times SE, \] 
 where $z^{\star}$ corresponds to the cutoff points in the standard normal distribution to capture the middle XX\% of the data, where XX\% is the desired confidence level.
 \begin{itemize}
-\item[-] For means this is $\bar{x} \pm Z^\star \frac{\sigma}{\sqrt{n}}$.
+\item[-] For proportions this is $\bar{x} \pm Z^\star \sqrt{\frac{p(1-p)}{n}}$.
 \item[-] Note that $z^{\star}$ is always positive.
 \end{itemize}
 
@@ -146,17 +143,14 @@ where $z^{\star}$ corresponds to the cutoff points in the standard normal distri
 \vspace{-0.5cm}
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.2 of OpenIntro Statistics
+\item Reading: Section 5.2 of OpenIntro Statistics
 \item Test yourself: 
 {\small
 \begin{enumerate}
-\item Explain, in plain English, what is going on in Figure 4.8 of the book (page 166).
+\item Explain, in plain English, what is going on in Figure 5.6 of the book (page 182).
 \item List the conditions necessary for the CLT to hold. Make sure to list alternative conditions for when we know the population distribution is normal vs. when we don't know what the population distribution is, and the when the sample size is barely over 30 vs. when it's very large.
 \item Confirm that $z^{\star}$ for a 98\% confidence level is 2.33. (Include a sketch of the normal curve in your response.)
-\item Calculate a 95\% confidence interval for the average height of US women using a random sample of 100 women where the sample mean is 63 inches and the sample standard deviation is 3 inches, and interpret this interval in context of the data.
 \item Explain, in plain English, the difference between standard error and margin of error.
-\item A little more challenging: Suppose heights of all men in the US have a mean of 69.1 inches and a standard deviation of 2.9 inches. What is the probability that a random sample of 100 men will yield a sample average less than 70 inches?\\ 
-Hint: First check if we should expect the sample mean to be distributed nearly normally, i.e. if the CLT holds. If so, sketch a normal curve with mean $\mu$ and the appropriate standard error. Shade the area you're interested in, and calculate it using methods we learned in the previous unit. 
 \end{enumerate}
 }
 \end{itemize}
@@ -181,7 +175,7 @@ Hint: First check if we should expect the sample mean to be distributed nearly n
 
 \item Construction of hypotheses:
 \begin{itemize}
-\item[-] Always construct hypotheses about population parameters (e.g. population mean, $\mu$) and not the sample statistics (e.g. sample mean, $\bar{x}$). Note that the population parameter is unknown while the sample statistic is measured using the observed data and hence there is no point in hypothesizing about it.
+\item[-] Always construct hypotheses about population parameters (e.g. population proportion, $p$) and not the sample statistics (e.g. sample proportion, $\hat{p}$). Note that the population parameter is unknown while the sample statistic is measured using the observed data and hence there is no point in hypothesizing about it.
 \item[-] Define the null value as the value the parameter is set to equal in the null hypothesis.
 \item[-] Note that the alternative hypothesis might be one-sided ($\mu$ $<$ or $>$ the null value) or two-sided ($\mu$ $\ne$ the null value), and the choice depends on the research question.
 \end{itemize}
@@ -189,7 +183,7 @@ Hint: First check if we should expect the sample mean to be distributed nearly n
 \item Define a p-value as the conditional probability of obtaining a sample statistic at least as extreme as the one observed given that the null hypothesis is true.
 \[ \text{p-value} = \text{P(observed or more extreme sample statistic}~|~H_0 \text{ true)} \]
 
-\item Calculate a p-value as the area under the normal curve beyond the observed sample mean (either in one tail or both, depending on the alternative hypothesis). Note that in doing so you can use a Z score, where
+\item Calculate a p-value as the area under the normal curve beyond the observed sample proportion (either in one tail or both, depending on the alternative hypothesis). Note that in doing so you can use a Z score, where
 \[ Z = \frac{sample~statistic - null~value}{SE} = \frac{\bar{x} - \mu_0}{SE} \]
 \begin{itemize}
 \item[-] Always sketch the normal curve when calculating the p-value, and shade the appropriate area(s) depending on whether the alternative hypothesis is one- or two-sided.
@@ -216,69 +210,6 @@ Hint: First check if we should expect the sample mean to be distributed nearly n
 \item[-] Use a larger $\alpha$ is Type 2 error is relatively riskier.
 \end{itemize}
 
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.5cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.3 of OpenIntro Statistics
-\item Test yourself: 
-{\small
-\begin{enumerate}
-\item List errors in the following hypotheses: $H_0: \bar{x} > 20$ and $H_A: \bar{x} \ge 25$
-\item What is wrong with the following statement? \\
-``If p-value is large we accept the null hypothesis since a large p-value implies that the observed difference between the null value and the sample statistic is quite likely to happen just by chance."
-\item Suppose a researcher is interested in evaluating the following claim ``The average height of adult males in the US is 69.1 inches", and that she believes this is an underestimate.
-\begin{enumerate}
-\item How should she set up her hypotheses? 
-\item Explain to her, in plain language, how she should collect data and carry out a hypothesis test.
-\item Suppose she collects a sample of 40 adult males, and finds a sample average of 70.2 inches, and a p-value of 0.0082. What should she conclude?
-\item Interpret this p-value (as a conditional probability) in context of the question.
-\item Suppose that the true average is in fact 69.1 inches, what type of an error has this researcher made? In order to avoid making such an error should she have used a smaller or a large significance level?
-\end{enumerate}
-\item Go back to Section 1.8 and describe the differences and similarities between the hypothesis testing procedure using simulation and using theory. Especially discuss how the calculation of the p-value changes while the definition stays the same.
-\end{enumerate}
-}
-\end{itemize}
-}}
-
-%
-
-\vspace{0.5cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Notice that sampling distributions of point estimates coming from samples that don't meet the required conditions for the CLT (about sample size, skew, and independence) will not be normal.
-
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.5cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.4 of OpenIntro Statistics
-\item Test yourself: \\
-{\small
- Explain what is going on in Figure 4.20 of the book (page 186).
-}
-\end{itemize}
-}}
-
-%
-
-\vspace{0.5cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
 \item Formulate the framework for statistical inference using hypothesis testing and nearly normal point estimates:
 \begin{enumerate}
 \item[(1)] Set up the hypotheses first in plain language and then using appropriate notation.
@@ -290,47 +221,33 @@ Hint: First check if we should expect the sample mean to be distributed nearly n
 
 \item If the conditions necessary for the CLT to hold are not met, note this and do not go forward with the analysis. (We will later learn about methods to use in these situations.)
 
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.5cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.5 of OpenIntro Statistics
-\item Test yourself: \\
-{\small
-In a random sample of 1,017 Americans 60\% said they do not trust the mass media when it comes to reporting the news fully, accurately, and fairly. The standard error associated with this estimate is 0.015 (1.5\%). What is the margin of error for a 95\% confidence level? Calculate a 95\% confidence interval and interpret it in context. You may assume that the point estimate is normally distributed (we'll learn how to check this later).
-}
-\end{itemize}
-}}
-
-%
-
-\vspace{0.5cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Calculate the required sample size to obtain a given margin of error at a given confidence level by working backwards from the given margin of error.
-
 \item Distinguish statistical significance vs. practical significance.
 
-\item Define power as the probability of correctly rejecting the null hypothesis (complement of Type 2 error).
 
 \end{enumerate}
+
 
 \gray{
 {\it
 \vspace{-0.5cm}
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.6 of OpenIntro Statistics (excluding Section 4.6.3)
-\item Test yourself: \\
+\item Reading: Section 5.3 of OpenIntro Statistics
+\item Test yourself: 
 {\small
-If we want to decrease the margin of error, and hence have a more precise confidence interval, should we increase or decrease the sample size?
+\begin{enumerate}
+\item List errors in the following hypotheses: $H_0: \hat{p} > 0.20$ and $H_A: \hat{p} \ge 0.25$
+\item What is wrong with the following statement? \\
+``If p-value is large we accept the null hypothesis since a large p-value implies that the observed difference between the null value and the sample statistic is quite likely to happen just by chance."
+\item Suppose a researcher is interested in evaluating the following claim ``The proportion of adults in the US is who vote is 40\%", and that she believes this is an underestimate.
+\begin{enumerate}
+\item How should she set up her hypotheses? 
+\item Explain to her, in plain language, how she should collect data and carry out a hypothesis test.
+\end{enumerate}
+\item Go back to Section 2.4 and describe the differences and similarities between the hypothesis testing procedure using simulation and using theory. Especially discuss how the calculation of the p-value changes while the definition stays the same.
+\item If we want to decrease the margin of error, and hence have a more precise confidence interval, should we increase or decrease the sample size?
+\item In a random sample of 1,017 Americans 60\% said they do not trust the mass media when it comes to reporting the news fully, accurately, and fairly. The standard error associated with this estimate is 0.015 (1.5\%). What is the margin of error for a 95\% confidence level? Calculate a 95\% confidence interval and interpret it in context. You may assume that the point estimate is normally distributed (we'll learn how to check this later).
+\end{enumerate}
 }
 \end{itemize}
 }}
