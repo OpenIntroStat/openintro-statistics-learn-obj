@@ -1,5 +1,3 @@
-setwd("~/Desktop/Teaching/Sta 101 - F12/Learning objectives/Unit 6/figures")
-
 set.seed(5432)
 
 pdf("outliers.pdf", height = 3, width = 5)

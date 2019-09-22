@@ -32,325 +32,94 @@
 \newcommand{\gray}[1]{\textcolor{gray}{#1}}
 
 
+
 %\date{}                                           % Activate to display a given date or no date
+
+%
 
 \begin{document}
 
-{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 4: Framework for inference}} \\
-
-%
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 4: Distributions of random variables}} \\
 
 \begin{enumerate}
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+\renewcommand\labelenumi{\textcolor{oiB}{\textbf{LO \theenumi.}}}
 
-\item Define sample statistic as a point estimate for a population parameter, for example, the sample mean is used to estimate the population mean, and note that point estimate and sample statistic are synonymous.
+\item Define the standardized (Z) score of a data point as the number of standard deviations it is away from the mean: $Z = \frac{x - \mu}{\sigma}$.
 
-\item Recognize that point estimates (such as the sample mean) will vary from one sample to another, and define this variability as sampling variation.
-
-\item Calculate the sampling variability of the mean, the standard error, as $SE = \frac{\sigma}{\sqrt{n}}$, where $\sigma$ is the population standard deviation.
+\item Use the Z score 
 \begin{itemize}
-\item[-] Note that when the population standard deviation $\sigma$ is not known (almost always), this can be estimated using the sample standard deviation, $SE = \frac{s}{\sqrt{n}}$.
+\item[-] if the distribution is normal: to determine the percentile score of a data point (using technology or normal probability tables)
+\item[-] regardless of the shape of the distribution: to assess whether or not the particular observation is considered to be unusual (more than 2 standard deviations away from the mean) 
 \end{itemize}
 
-\item Distinguish standard deviation ($\sigma$ or $s$) and standard error ($SE$): standard deviation measures the variability in the data, while standard error measures the variability in point estimates from different samples of the same size and from the same population, i.e. measures the sampling variability.
+\item Depending on the shape of the distribution determine whether the median would have a negative, positive, or 0 Z score.
 
-\item Recognize that when the sample size increases we would expect the sampling variability to decrease.
-\begin{itemize}
-\item[-] Conceptually: Imagine taking many samples from the population. When sample sizes are large the sample means will be much more consistent across samples than when the sample sizes are small.
-\item[-] Mathematically: $SE = \frac{\sigma}{\sqrt{n}}$, when $n$ increases, $SE$ will decrease since $n$ is in the denominator.
-\end{itemize}
+\item Assess whether or not a distribution is nearly normal using the 68-95-99.7\% rule or graphical methods such as a normal probability plot.
 
 \end{enumerate}
 
 \gray{
 {\it
-\vspace{-0.5cm}
+\vspace{-0.75cm}
 \begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\renewcommand{\labelitemi}{{\textcolor{oiB}{$\ast$}}}
 \item Reading: Section 4.1 of OpenIntro Statistics
-\item Videos: 
-\begin{itemize}
-\item \href{http://www.youtube.com/watch?v=dF18I7-Re4I}{Sample vs. sampling distribution, Dr. \c{C}etinkaya-Rundel} (9:30)
-\item \href{http://www.youtube.com/watch?v=Cvc8sYAKmtI}{Working with the CLT for means, Dr. \c{C}etinkaya-Rundel} (3:16)
-\item \href{http://www.youtube.com/watch?v=j4ZpJ0T6eFw&feature=autoplay&list=PL568547ACA9211CCA&playnext=1}{Distribution of the sample mean, YouTube} (6:17)
+\item Test yourself: True/False: In a right skewed distribution the Z score of the median is positive.
 \end{itemize}
+}}
+
+%
+
+\vspace{0.48cm}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{oiB}{\textbf{LO \theenumi.}}}
+
+\item If X is a random variable that takes the value 1 with probability of success $p$ and 0 with probability of success $1-p$, then $X$ is a Bernoulli random variable.
+
+\item The geometric distribution is used to describe how many trials it takes to observe a success.
+
+\item Define the probability of finding the first success in the $n^{th}$ trial as $(1-p)^{n-1}p$.
+\begin{itemize}
+\item[-] $\mu = \frac{1}{p}$
+\item[-] $\sigma^2 = \frac{1-p}{p^2}$
+\item[-] $\sigma = \sqrt{\frac{1-p}{p^2}}$
+\end{itemize}
+
+\item Determine if a random variable is binomial using the four conditions:
+\begin{itemize}
+\item[-] The trials are independent. 
+\item[-] The number of trials, n, is fixed. 
+\item[-] Each trial outcome can be classified as a success or failure. 
+\item[-] The probability of a success, p, is the same for each trial. 
+\end{itemize}
+
+\item Calculate the number of possible scenarios for obtaining $k$ successes in $n$ trials using the choose function: ${n \choose k} = \frac{n!}{k!~(n - k)!}$.
+
+\item Calculate probability of a given number of successes in a given number of trials using the binomial distribution: $P(k = K) = \frac{n!}{k!~(n - k)!}~p^k~(1-p)^{(n - k)}$. 
+
+\item Calculate the expected number of successes in a given number of binomial trials $(\mu = np)$ and its standard deviation $(\sigma = \sqrt{np(1-p)})$.
+
+\item When number of trials is sufficiently large ($np \ge 10$ and $n(1-p) \ge 10$), use normal approximation to calculate binomial probabilities, and explain why this approach works.
+
+\end{enumerate}
+
+%
+
+\gray{
+{\it
+\vspace{-0.75cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{oiB}{$\ast$}}}
+\item Reading: Section 4.2 and 4.3 of OpenIntro Statistics
 \item Test yourself: 
-{\small
 \begin{enumerate}
-\item For each of the following situations, state whether the variable is categorical or numerical, and whether the parameter of interest is a mean or a proportion.
-\begin{enumerate}
-\item In a survey, college students are asked whether they agree with their parents' political ideology.  
-\item In a survey, college students are asked what percentage of their non-class time they spend studying.
+\item True/False: We can use the binomial distribution to determine the probability that in 10 rolls of a die the first 6 occurs on the 8th roll.
+\item True / False: If a family has 3 kids, there are 8 possible combinations of gender order.
+\item True/ False: When $n = 100$ and $p = 0.92$ we can use the normal approximation to the binomial to calculate the probability of 90 or more successes.
 \end{enumerate}
-\item Suppose heights of all women in the US have a mean of 63.7 inches, and a random sample of 100 women's heights yield a sample mean of 65.2 inches. Which one is the population parameter and which one is the point estimate? Which one is $\mu$ and which one is $\bar{x}$?
-\item Suppose heights of all women in the US have a standard deviation of 2.7 inches, and a random sample of 100 women's heights yields a standard deviation of 4 inches. Which one is the population parameter and which one is the point estimate? Which one is $\sigma$ and which one is $s$?
-\item Explain, in plain English, the difference between standard deviation and standard error.
-\item Suppose heights of all men in the US have a mean of 69.1 inches and a standard deviation of 2.9 inches. Would a randomly selected man who is 72 inches tall be considered unusually tall? Would it be unusual to have a random sample of 100 men where the sample average is 72 inches?
-\end{enumerate}
-}
-\end{itemize}
-}}
-
-
-%
-
-\vspace{0.5cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Define a confidence interval as the plausible range of values for a population parameter.
-
-\item Define the confidence level as the percentage of random samples which yield confidence intervals that capture the true population parameter.
-
-\item Calculate an approximate 95\% confidence interval by adding and subtracting 2 standard errors to the point estimate: $point~estimate \pm 2 \times SE$.
-
-\item Recognize that the Central Limit Theorem (CLT) is about the distribution of point estimates, and that given certain conditions, this distribution will be nearly normal.
-\begin{itemize}
-\item[-] In the case of the mean the CLT tells us that if
-\begin{itemize}[parsep=0pt]
-\item[(1a)] the sample size is sufficiently large $(n \ge 30)$ and the data are not extremely skewed or
-\item[(1b)] the population is known to have a normal distribution, and
-\item[(2)] the observations in the sample are independent,
-\end{itemize}
-then the distribution of the sample mean will be nearly normal, centered at the true population mean and with a standard error of $\frac{\sigma}{\sqrt{n}}$.
-\[ \bar{x} \sim N \left( mean = \mu, SE = \frac{\sigma}{\sqrt{n}} \right) \]
-\item[-] When the population distribution is unknown, condition (1a) can be checked using a histogram or some other visualization of the distribution of the observed data in the sample.
-\item[-] The larger the sample size ($n$), the less important that the shape of the distribution becomes, i.e. when $n$ is very large the sampling distribution will be nearly normal regardless of the shape of the population distribution.
-\end{itemize}
-
-\item Recall that independence of observations in a sample is provided by random sampling (in the case of observational studies) or random assignment (in the case of experiments).
-\begin{itemize}
-\item[-] In addition, the sample should not be \textit{too} large compared to the population, or more precisely, should be smaller than 10\% of the population, since samples that are too large will likely contain observations that are not independent.
-\end{itemize}
-
-\item Recognize that the nearly normal distribution of the point estimate (as suggested by the CLT) implies that a more precise confidence interval can be calculated as
-\[ point~estimate \pm z^{\star} \times SE, \] 
-where $z^{\star}$ corresponds to the cutoff points in the standard normal distribution to capture the middle XX\% of the data, where XX\% is the desired confidence level.
-\begin{itemize}
-\item[-] For means this is $\bar{x} \pm Z^\star \frac{\sigma}{\sqrt{n}}$.
-\item[-] Note that $z^{\star}$ is always positive.
-\end{itemize}
-
-\item Define margin of error as the distance required to travel in either direction away from the point estimate when constructing a confidence interval, i.e. $z^{\star} \times SE$.
-\begin{itemize}
-\item[-] Notice that this corresponds to half the width of the confidence interval.
-\end{itemize}
-
-\item Interpret a confidence interval as ``We are XX\% confident that the true population parameter is in this interval", where XX\% is the desired confidence level.
-\begin{itemize}
-\item[-] Note that your interpretation must always be in context of the data -- mention what the population is and what the parameter is (mean or proportion).
-\end{itemize}
-
-
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.5cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.2 of OpenIntro Statistics
-\item Videos: 
-\begin{itemize}
-\item \href{http://www.khanacademy.org/math/statistics/v/central-limit-theorem}{Central Limit Theorem, Khan Academy} (9:49)
-\item \href{http://www.khanacademy.org/math/statistics/v/sampling-distribution-of-the-sample-mean}{Sampling Distribution of the Mean, Khan Academy} (10:52)
-\end{itemize}
-\item Test yourself: 
-{\small
-\begin{enumerate}
-\item Explain, in plain English, what is going on in Figure 4.8 of the book (page 166).
-\item List the conditions necessary for the CLT to hold. Make sure to list alternative conditions for when we know the population distribution is normal vs. when we don't know what the population distribution is, and the when the sample size is barely over 30 vs. when it's very large.
-\item Confirm that $z^{\star}$ for a 98\% confidence level is 2.33. (Include a sketch of the normal curve in your response.)
-\item Calculate a 95\% confidence interval for the average height of US women using a random sample of 100 women where the sample mean is 63 inches and the sample standard deviation is 3 inches, and interpret this interval in context of the data.
-\item Explain, in plain English, the difference between standard error and margin of error.
-\item A little more challenging: Suppose heights of all men in the US have a mean of 69.1 inches and a standard deviation of 2.9 inches. What is the probability that a random sample of 100 men will yield a sample average less than 70 inches?\\ 
-Hint: First check if we should expect the sample mean to be distributed nearly normally, i.e. if the CLT holds. If so, sketch a normal curve with mean $\mu$ and the appropriate standard error. Shade the area you're interested in, and calculate it using methods we learned in the previous unit. 
-\end{enumerate}
-}
-\end{itemize}
-}}
-
-%
-
-\vspace{0.5cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Explain how the hypothesis testing framework resembles a court trial.
-
-\item Recognize that in hypothesis testing we evaluate two competing claims: 
-\begin{itemize}
-\item[-] the null hypothesis, which represents a skeptical perspective or the status quo, and 
-\item[-] the alternative hypothesis, which represents an alternative under consideration and is often represented by a range of possible parameter values.
-\end{itemize}
-
-\item Construction of hypotheses:
-\begin{itemize}
-\item[-] Always construct hypotheses about population parameters (e.g. population mean, $\mu$) and not the sample statistics (e.g. sample mean, $\bar{x}$). Note that the population parameter is unknown while the sample statistic is measured using the observed data and hence there is no point in hypothesizing about it.
-\item[-] Define the null value as the value the parameter is set to equal in the null hypothesis.
-\item[-] Note that the alternative hypothesis might be one-sided ($\mu$ $<$ or $>$ the null value) or two-sided ($\mu$ $\ne$ the null value), and the choice depends on the research question.
-\end{itemize}
-
-\item Define a p-value as the conditional probability of obtaining a sample statistic at least as extreme as the one observed given that the null hypothesis is true.
-\[ \text{p-value} = \text{P(observed or more extreme sample statistic}~|~H_0 \text{ true)} \]
-
-\item Calculate a p-value as the area under the normal curve beyond the observed sample mean (either in one tail or both, depending on the alternative hypothesis). Note that in doing so you can use a Z score, where
-\[ Z = \frac{sample~statistic - null~value}{SE} = \frac{\bar{x} - \mu_0}{SE} \]
-\begin{itemize}
-\item[-] Always sketch the normal curve when calculating the p-value, and shade the appropriate area(s) depending on whether the alternative hypothesis is one- or two-sided.
-\end{itemize}
-
-\item Infer that if a confidence interval does not contain the null value the null hypothesis should be rejected in favor of the alternative.
-
-\item Compare the p-value to the significance level to make a decision between the hypotheses:
-\begin{itemize}
-\item[-] If the p-value $<$ the significance level, reject the null hypothesis since this means that obtaining a sample statistics at least as extreme as the observed data is extremely unlikely to happen just by chance, and conclude that the data provides evidence for the alternative hypothesis.
-\item[-] If the p-value $>$ the significance level, fail to reject the null hypothesis since this means that obtaining a sample statistics at least as extreme as the observed data is quite likely to happen by chance, and conclude that the data does not provide evidence for the alternative hypothesis.
-\item[-] Note that we can never ``accept" the null hypothesis since the hypothesis testing framework does not allow us to confirm it.
-\end{itemize}
-
-\item Note that the conclusion of a hypothesis test might be erroneous regardless of the decision we make.
-\begin{itemize}
-\item[-] Define a Type 1 error as rejecting the null hypothesis when the null hypothesis is actually true.
-\item[-] Define a Type 2 error as failing to reject the null hypothesis when the alternative hypothesis is actually true.
-\end{itemize}
-
-\item Choose a significance level depending on the risks associated with Type 1 and Type 2 errors.
-\begin{itemize}
-\item[-] Use a smaller $\alpha$ is Type 1 error is relatively riskier.
-\item[-] Use a larger $\alpha$ is Type 2 error is relatively riskier.
-\end{itemize}
-
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.5cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.3 of OpenIntro Statistics
-\item Videos:
-\begin{itemize}
-\item \href{http://www.youtube.com/watch?v=5N7L1cGCL-w}{Null and alternative hypotheses, YouTube} (2:42)
-\end{itemize}
-\item Test yourself: 
-{\small
-\begin{enumerate}
-\item List errors in the following hypotheses: $H_0: \bar{x} > 20$ and $H_A: \bar{x} \ge 25$
-\item What is wrong with the following statement? \\
-``If p-value is large we accept the null hypothesis since a large p-value implies that the observed difference between the null value and the sample statistic is quite likely to happen just by chance."
-\item Suppose a researcher is interested in evaluating the following claim ``The average height of adult males in the US is 69.1 inches", and that she believes this is an underestimate.
-\begin{enumerate}
-\item How should she set up her hypotheses? 
-\item Explain to her, in plain language, how she should collect data and carry out a hypothesis test.
-\item Suppose she collects a sample of 40 adult males, and finds a sample average of 70.2 inches, and a p-value of 0.0082. What should she conclude?
-\item Interpret this p-value (as a conditional probability) in context of the question.
-\item Suppose that the true average is in fact 69.1 inches, what type of an error has this researcher made? In order to avoid making such an error should she have used a smaller or a large significance level?
-\end{enumerate}
-\item Go back to Section 1.8 and describe the differences and similarities between the hypothesis testing procedure using simulation and using theory. Especially discuss how the calculation of the p-value changes while the definition stays the same.
-\end{enumerate}
-}
-\end{itemize}
-}}
-
-%
-
-\vspace{0.5cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Notice that sampling distributions of point estimates coming from samples that don't meet the required conditions for the CLT (about sample size, skew, and independence) will not be normal.
-
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.5cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.4 of OpenIntro Statistics
-\item Test yourself: \\
-{\small
- Explain what is going on in Figure 4.20 of the book (page 186).
-}
-\end{itemize}
-}}
-
-%
-
-\vspace{0.5cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Formulate the framework for statistical inference using hypothesis testing and nearly normal point estimates:
-\begin{enumerate}
-\item[(1)] Set up the hypotheses first in plain language and then using appropriate notation.
-\item[(2)] Identify the appropriate sample statistic that can be used as a point estimate for the parameter of interest.
-\item[(3)] Verify that the conditions for the CLT holds.
-\item[(4)] Compute the SE, sketch the sampling distribution, and shade area(s) representing the p-value.
-\item[(5)] Using the sketch and the normal model, calculate the p-value and determine if the null hypothesis should be rejected or not, and state your conclusion in context of the data and the research question.
-\end{enumerate}
-
-\item If the conditions necessary for the CLT to hold are not met, note this and do not go forward with the analysis. (We will later learn about methods to use in these situations.)
-
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.5cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.5 of OpenIntro Statistics
-\item Test yourself: \\
-{\small
-In a random sample of 1,017 Americans 60\% said they do not trust the mass media when it comes to reporting the news fully, accurately, and fairly. The standard error associated with this estimate is 0.015 (1.5\%). What is the margin of error for a 95\% confidence level? Calculate a 95\% confidence interval and interpret it in context. You may assume that the point estimate is normally distributed (we'll learn how to check this later).
-}
-\end{itemize}
-}}
-
-%
-
-\vspace{0.5cm}
-
-%
-
-\begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Calculate the required sample size to obtain a given margin of error at a given confidence level by working backwards from the given margin of error.
-
-\item Distinguish statistical significance vs. practical significance.
-
-\item Define power as the probability of correctly rejecting the null hypothesis (complement of Type 2 error).
-
-\end{enumerate}
-
-\gray{
-{\it
-\vspace{-0.5cm}
-\begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 4.6 of OpenIntro Statistics (excluding Section 4.6.3)
-\item Videos:
-\begin{itemize}
-\item[-] Slow but thorough: \href{http://www.youtube.com/watch?v=QW9_T8nrApU}{Calculating power, YouTube} (29:18)
-\end{itemize}
-\item Test yourself: \\
-{\small
-If we want to decrease the margin of error, and hence have a more precise confidence interval, should we increase or decrease the sample size?
-}
 \end{itemize}
 }}
 

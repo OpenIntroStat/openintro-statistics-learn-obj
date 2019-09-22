@@ -31,30 +31,49 @@
 \newcommand{\dark}[1]{\textcolor{dark}{#1}}
 \newcommand{\gray}[1]{\textcolor{gray}{#1}}
 
-
-
 %\date{}                                           % Activate to display a given date or no date
 
 %
 
 \begin{document}
 
-{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 3: Distributions of random variables}} \\
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 3: Probability}} \\
 
 \begin{enumerate}
-\renewcommand\labelenumi{\textcolor{oiB}{\textbf{LO \theenumi.}}}
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Define the standardized (Z) score of a data point as the number of standard deviations it is away from the mean: $Z = \frac{x - \mu}{\sigma}$.
+\item Define trial, outcome, and sample space.
 
-\item Use the Z score 
+\item Explain why the long-run relative frequency of repeated independent events settle down to the true probability as the number of trials increases, i.e. why the law of large numbers holds.
+
+\item Distinguish disjoint (also called mutually exclusive) and independent events.
 \begin{itemize}
-\item[-] if the distribution is normal: to determine the percentile score of a data point (using technology or normal probability tables)
-\item[-] regardless of the shape of the distribution: to assess whether or not the particular observation is considered to be unusual (more than 2 standard deviations away from the mean) 
+\item[-] If A and B are independent, then having information on A does not tell us anything about B.
+\item[-] If A and B are disjoint, then knowing that A occurs tells us that B cannot occur.
+\item[-] Disjoint (mutually exclusive) events are always dependent since if one event occurs we know the other one cannot.
 \end{itemize}
 
-\item Depending on the shape of the distribution determine whether the median would have a negative, positive, or 0 Z score.
+\item Draw Venn diagrams representing events and their probabilities.
 
-\item Assess whether or not a distribution is nearly normal using the 68-95-99.7\% rule or graphical methods such as a normal probability plot.
+\item Define a probability distribution as a list of the possible outcomes with corresponding probabilities that satisfies three rules: 
+\begin{itemize}
+\item[-] The outcomes listed must be disjoint. 
+\item[-] Each probability must be between 0 and 1, inclusive.
+\item[-] The probabilities must total 1. 
+\end{itemize}
+
+\item Define complementary outcomes as mutually exclusive outcomes of the same random process whose probabilities add up to 1. 
+\begin{itemize}
+\item[-] If A and B are complementary, $P(A) + P(B) = 1$.
+\end{itemize}
+
+\item Distinguish between union of events (A or B) and intersection of events (A and B).
+
+\item Calculate the probability of union of events using the (general) addition rule.
+\begin{itemize}
+\item[-] If A and B are not mutually exclusive, $P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$.
+\item[-] If A and B are mutually exclusive, $P(A \text{ or } B) = P (A) + P (B)$, since for mutually exclusive events $P(A \text{ and } B) = 0$.
+\end{itemize}
 
 \end{enumerate}
 
@@ -62,19 +81,17 @@
 {\it
 \vspace{-0.75cm}
 \begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{oiB}{$\ast$}}}
-\item Reading: Section 3.1 and 3.2 of OpenIntro Statistics
-\item Video: \href{http://www.youtube.com/watch?v=ev463hHe544}{Normal Distribution - Finding Probabilities - Dr.\c{C}etinkaya-Rundel, YouTube, 6:04}
-\item Video: \href{http://www.youtube.com/watch?v=6rAg4Y6NirU}{Normal Distribution - Finding Cutoff Points - Dr.\c{C}etinkaya-Rundel, YouTube, 4:25}
-\item Additional resources:
-\begin{itemize}
-\item Video: \href{http://www.youtube.com/watch?v=McSFVzc8Swk&list=PL568547ACA9211CCA&index=24}{Normal distribution and 68-95-99.7\% rule, YouTube, 3:18}
-\item Video: \href{http://www.youtube.com/watch?v=5v3Czc6ZK-Q&list=PL568547ACA9211CCA&index=23}{Z scores - Part 1, YouTube, 3:03} 
-\item Video: \href{http://www.youtube.com/watch?v=aa_deKPDgI4&list=PL568547ACA9211CCA&index=22}{Z scores - Part 2, YouTube, 4:01}
-\end{itemize}
-\item Test yourself: True/False: In a right skewed distribution the Z score of the median is positive.
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 3.1 of OpenIntro Statistics
+\item Test yourself:
+\begin{enumerate}
+\item What is the probability of getting a head on the 6th coin flip if in the first 5 flips the coin landed on a head each time?
+\item True / False: Being right handed and having blue eyes are mutually exclusive events.
+\item P(A) = 0.5, P(B) = 0.6, there are no other possible outcomes in the sample space. What is P(A and B)?
+\end{enumerate}
 \end{itemize}
 }}
+
 
 %
 
@@ -83,47 +100,69 @@
 %
 
 \begin{enumerate}[resume]
-\renewcommand\labelenumi{\textcolor{oiB}{\textbf{LO \theenumi.}}}
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Determine if a random variable is binomial using the four conditions:
+\item Distinguish marginal and conditional probabilities.
+
+\item Calculate the probability of intersection of independent events using the multiplication rule.
 \begin{itemize}
-\item[-] The trials are independent. 
-\item[-] The number of trials, n, is fixed. 
-\item[-] Each trial outcome can be classified as a success or failure. 
-\item[-] The probability of a success, p, is the same for each trial. 
+\item[-] If A and B are dependent, $P(A \text{ and } B) = P(A) \times P(B | A)$.
+\item[-] If A and B are dependent, independent, $P(A \text{ and } B) = P(A) \times P(B)$,  since for independent events $P(B | A) = P(B)$.
 \end{itemize}
 
-\item Calculate the number of possible scenarios for obtaining $k$ successes in $n$ trials using the choose function: ${n \choose k} = \frac{n!}{k!~(n - k)!}$.
-
-\item Calculate probability of a given number of successes in a given number of trials using the binomial distribution: $P(k = K) = \frac{n!}{k!~(n - k)!}~p^k~(1-p)^{(n - k)}$. 
-
-\item Calculate the expected number of successes in a given number of binomial trials $(\mu = np)$ and its standard deviation $(\sigma = \sqrt{np(1-p)})$.
-
-\item When number of trials is sufficiently large ($np \ge 10$ and $n(1-p) \ge 10$), use normal approximation to calculate binomial probabilities, and explain why this approach works.
+\item Construct tree diagrams to calculate conditional probabilities and probabilities of intersection of non-independent events using Bayes' theorem.
 
 \end{enumerate}
-
-%
 
 \gray{
 {\it
 \vspace{-0.75cm}
 \begin{itemize}
-\renewcommand{\labelitemi}{{\textcolor{oiB}{$\ast$}}}
-\item Reading: Section 3.4 of OpenIntro Statistics
-\item Video: \href{http://www.youtube.com/watch?v=tKmyzhvgudw}{Binomial Distribution - Finding Probabilities - Dr.\c{C}etinkaya-Rundel, YouTube, 8:46}
-\item Additional resources:
-\begin{itemize}
-\item Video: \href{http://www.youtube.com/watch?v=oYeJBdCGwxk&list=PL568547ACA9211CCA&index=28&feature=plpp_video}{Binomial distribution, YouTube, 4:25}
-\item Video: \href{http://www.youtube.com/watch?v=0er3EiM-bpg&list=PL568547ACA9211CCA&index=27&feature=plpp_video}{Mean and standard deviation of a binomial distribution, YouTube, 1:39} 
-\end{itemize}
-\item Test yourself: 
-\begin{enumerate}
-\item True/False: We can use the binomial distribution to determine the probability that in 10 rolls of a die the first 6 occurs on the 8th roll.
-\item True / False: If a family has 3 kids, there are 8 possible combinations of gender order.
-\item True/ False: When $n = 100$ and $p = 0.92$ we can use the normal approximation to the binomial to calculate the probability of 90 or more successes.
-\end{enumerate}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 3.2 of OpenIntro Statistics
+\item Test yourself: 50\% of students in a class are social science majors and the rest are not. 70\% of the social science students and 40\% of the non-social science students are in a relationship. Create a contingency table and a tree diagram summarizing these probabilities. Calculate the percentage of students in this class who are in a relationship.
 \end{itemize}
 }}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Sampling without replacement from a small population means we no longer have independence between our observations.
+
+\item A random variable is a random process or variable with a numerical outcome. Modeling a process using a random variable allows us to apply a mathematical framework and statistical principles for better understanding and predicting outcomes in the real world.
+
+\item We use measures of center and spread to define distributions of random variables.
+\begin{itemize}
+\item[-] Center: Expected value, mean, i.e. average. Denoted as $E(X)$ or $\mu$.
+\item[-] Variability: Variance (average squared deviation around the expected value). Denoted as $Var(X)$ or $\sigma^2$.
+\end{itemize}
+
+\item Expected value and variance of a discrete random variable, $X$, can be calculated as follows:
+\[ E(X) = \mu = \sum_{i = 1}^k x_i P(X = x_i) \]
+\[ Var(X) = \sigma^2 = \sum_{j = 1}^k (x_j - \mu)^2 P(X = x_j) \]
+
+\item Standard deviation is the square root of variance. We use standard deviation also as a measure of the variability of the random variable. Standard deviation is often easier to interpret since it's in the same units of the random variable.
+
+\item Linear combinations of random variables:
+\begin{itemize}
+\item[-] $E(aX + bY) = a \times E(X) + b \times E(Y)$
+\item[-] $Var(aX + bY) = a^2 \times Var(X) + b^2 \times Var(Y)$
+\end{itemize}
+
+\item Probability density functions represent the distributions of continuous random variables.
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.75cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Sections 3.3 - 3.5 of OpenIntro Statistics
+\end{itemize}
+}}
+
 
 \end{document}
