@@ -34,32 +34,52 @@
 
 %\date{}                                           % Activate to display a given date or no date
 
-%
-
 \begin{document}
 
-{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 8: Multiple and logistic regression}} \\
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 8: Introduction to linear regression}} \\
+
 
 %
+
 \begin{enumerate}
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Define the multiple linear regression model as
-\[ \hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k \]
-where there are $k$ predictors (explanatory variables).
+\item Define the explanatory variable as the independent variable (predictor), and the response variable as the dependent variable (predicted).
 
-\item Interpret the estimate for the intercept ($b_0$) as the expected value of $y$ when all predictors are equal to 0, on average.
-
-\item Interpret the estimate for a slope (say $b_1$) as ``All else held constant, for each unit increase in $x_1$, we would expect $y$ to increase/decrease on average by $b_1$."
-
-\item Define collinearity as a high correlation between two independent variables such that the two variables contribute redundant information to the model -- which is something we want to avoid in multiple linear regression.
-
-\item Note that $R^2$ will increase with each explanatory variable added to the model, regardless of whether or not the added variables is a meaningful predictor of the response variable. Therefore we use adjusted $R^2$, which applies a penalty for the number of predictors included in the model, to better assess the strength of a multiple linear regression model:
-\[ R^2 = 1 - \frac{Var(e_i) / (n - k - 1)}{Var(y_i) / (n - 1)} \]
-where $Var(e_i)$ measures the variability of residuals ($SS_{Err}$), $Var(y_i)$ measures the total variability in observed $y$ ($SS_{Tot}$), $n$ is the number of cases and $k$ is the number of predictors.
+\item Plot the explanatory variable ($x$) on the x-axis and the response variable ($y$) on the y-axis, and fit a linear regression model
+\[ y = \beta_0 + \beta_1 x,\]
+where $\beta_0$ is the intercept, and $\beta_1$ is the slope.
 \begin{itemize}
-\item[-] Note that adjusted $R^2$ will only increase if the added variable has a meaningful contribution to the amount of explained variability in $y$, i.e. if the gains from adding the variable exceeds the penalty.
+\item[-] Note that the point estimates (estimated from observed data) for $\beta_0$ and $\beta_1$ are $b_0$ and $b_1$, respectively.
 \end{itemize}
+
+\item When describing the association between two numerical variables, evaluate
+\begin{itemize}
+\item[-] direction: positive ($x \uparrow, y \uparrow$), negative ($x \downarrow, y \uparrow$)
+\item[-] form: linear or not
+\item[-] strength: determined by the scatter around the underlying relationship
+\end{itemize}
+
+\item Define correlation as the \emph{linear} association between two numerical variables.
+\begin{itemize}
+\item[-] Note that a relationship that is nonlinear is simply called an association.
+\end{itemize}
+
+\item Note that correlation coefficient ($r$, also called Pearson's $r$) the following properties:
+\begin{enumerate}
+\item[-] the magnitude (absolute value) of the correlation coefficient measures the strength of the linear association between two numerical variables
+\item[-] the sign of the correlation coefficient indicates the direction of association
+\item[-] the correlation coefficient is always between -1 and 1, inclusive, with -1 indicating perfect negative linear association, +1 indicating perfect positive linear association, and 0 indicating no \emph{linear} relationship
+\item[-] the correlation coefficient is unitless
+\item[-] since the correlation coefficient is unitless, it is not affected by changes in the center or scale of either variable (such as unit conversions)
+\item[-] the correlation of X with Y is the same as of Y with X 
+\item[-] the correlation coefficient is sensitive to outliers
+\end{enumerate}
+
+\item Recall that correlation does not imply causation.
+
+\item Define residual ($e$) as the difference between the observed ($y$) and predicted ($\hat{y}$) values of the response variable.
+\[ e_i = y_i - \hat{y}_i \]
 
 \end{enumerate}
 
@@ -69,13 +89,20 @@ where $Var(e_i)$ measures the variability of residuals ($SS_{Err}$), $Var(y_i)$ 
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
 \item Reading: Section 8.1 of OpenIntro Statistics
-\item Videos: To be posted
+\item Videos: 
+\begin{itemize}
+\item[-] Review: \href{http://www.youtube.com/watch?v=5zyruPbgxyM}{Correlation vs. causation}, YouTube (2:19)
+\item[-] \href{http://www.youtube.com/watch?v=zPG4NjIkCjc}{Intro to Linear Regression}, YouTube (5:18) - very slow introduction to linear regression
+\end{itemize}
 \item Test yourself:
 \begin{enumerate}
-\item How is multiple linear regression different than simple linear regression?
-\item What does ``all else held constant" mean in the interpretation of a slope coefficient in multiple linear regression?
-\item What is collinearity? Why do we want to avoid collinearity in multiple regression models?
-\item Explain the difference between $R^2$ and adjusted $R^2$. Which one will be higher? Which one tells us the variability in $y$ explained by the model? Which one is a better measure of the strength of a linear regression model? Why?
+\item Someone hands you the scatter diagram shown below, but has forgotten to label the axes. Can you calculate the correlation coefficient? Or do you need the labels?
+\begin{center}
+\includegraphics[width=0.4\textwidth]{figures/no_labels}
+\end{center}
+\item A teaching assistant gives a quiz. There are 10 questions on the quiz and no partial credit is given. After grading the papers the TA writes down for each student the number of questions the student got right and the number wrong. What is the correlation of the number of questions right and wrong? \\
+Hint: Make up some data for number of questions right, calculate number of questions wrong, and plot them against each other.
+\item Suppose you fit a linear regression model predicting score on an exam from number of hours studied. Say you've studied for 4 hours. Would you prefer to be on the line, below the line, or above the line? What would the residual for your score be (0, negative, or positive)?
 \end{enumerate}
 \end{itemize}
 }}
@@ -88,54 +115,50 @@ where $Var(e_i)$ measures the variability of residuals ($SS_{Err}$), $Var(y_i)$ 
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Define model selection as identifying the best model for predicting a given response variable. 
+\item Define the least squares line as the line that minimizes the sum of the squared residuals, and list conditions necessary for fitting such line:
+\begin{enumerate}
+\item[(1)] linearity
+\item[(2)] nearly normal residuals
+\item[(3)] constant variability
+\end{enumerate}
 
-\item Note that we usually prefer simpler (parsimonious) models over more complicated ones.
+\item Define an indicator variable as a binary explanatory variable (with two levels).
 
-\item Define the full model as the model with all explanatory variables included as predictors.
+\item Calculate the estimate for the slope ($b_1$) as 
+\[ b_1 = R\frac{s_y}{s_x}, \]
+where $r$ is the correlation coefficient, $s_y$ is the standard deviation of the response variable, and $s_x$ is the standard deviation of the explanatory variable.
 
-\item Note that the p-values associated with each predictor are conditional on other variables being included in the model, so they can be used to assess if a given predictor is significant, given that all others are in the model.
+\item Interpret the slope as 
 \begin{itemize}
-\item[-] These p-values are calculated based on a $t$ distribution with $n - k - 1$ degrees of freedom.
-\item[-] The same degrees of freedom can be used to construct a confidence interval for the slope parameter of each predictor:
-\[ b_i \pm t^\star_{n - k - 1} SE_{b_i} \]
+\item[-] ``For each unit increase in $x$, we would expect $y$ to increase/decrease on average by $|b_1|$ units" when $x$ is numerical.
+\item[-] ``The average increase/decrease in the response variable when between the baseline level and the other level of the explanatory variable is $|b_1|$." when $x$ is categorical.
+\item[-] Note that whether the response variable increases or decreases is determined by the sign of $b_1$.
 \end{itemize}
 
-\item Stepwise model selection (backward or forward) can be done based on p-values (drop variables that are not significant) or based on adjusted $R^2$ (choose the model with higher adjusted $R^2$).
+\item Note that the least squares line always passes through the average of the response and explanatory variables ($\bar{x},\bar{y}$).
 
-\item The general idea behind backward-selection is to start with the full model and eliminate one variable at a time until the ideal model is reached.
+\item Use the above property to calculate the estimate for the slope ($b_0$) as 
+\[ b_0 = \bar{y} - b_1 \bar{x}, \]
+where $b_1$ is the slope, $\bar{y}$ is the average of the response variable, and $\bar{x}$ is the average of explanatory variable.
+
+\item Interpret the intercept as
 \begin{itemize}
-\item[-] p-value method: 
-\begin{enumerate}
-\item[(i)] Start with the full model.
-\item[(ii)] Drop the variable with the highest p-value and refit the model.
-\item[(iiii)] Repeat until all remaining variables are significant.
-\end{enumerate}
-\item[-] adjusted $R^2$ method:
- \begin{enumerate}
-\item[(i)] Start with the full model.
-\item[(ii)] Refit all possible models omitting one variable at a time, and choose the model with the highest adjusted $R^2$.
-\item[(iii)] Repeat until maximum possible adjusted $R^2$ is reached.
-\end{enumerate}
+\item[-] ``When $x = 0$, we would expect $y$ to equal, on average, $b_0$." when $x$ is numerical.
+\item[-] ``The expected average value of the response variable for the reference level of the explanatory variable is $b_0$." when $x$ is categorical.
 \end{itemize}
 
-\item The general idea behind forward-selection is to start with only one variable and adding one variable at a time until the ideal model is reached.
+\item Predict the value of the response variable for a given value of the explanatory variable, $x^\star$, by plugging in $x^\star$ in the in the linear model:
+\[ \hat{y} = b_0 + b_1 x^\star \]
 \begin{itemize}
-\item[-] p-value method: 
-\begin{enumerate}
-\item[(i)] Try all possible simple linear regression models predicting $y$ using one explanatory variable at a time. Choose the model where the explanatory variable of choice has the lowest p-value.
-\item[(ii)] Try all possible models adding one more explanatory variable at a time, and choose the model where the added explanatory variable has the lowest p-value.
-\item[(iii)] Repeat until all added variables are significant.
-\end{enumerate}
-\item[-] adjusted $R^2$ method:
-\begin{enumerate}
-\item[(i)] Try all possible simple linear regression models predicting $y$ using one explanatory variable at a time. Choose the model with the highest adjusted $R^2$.
-\item[(ii)] Try all possible models adding one more explanatory variable at a time, and choose the model with the highest adjusted $R^2$.
-\item[(iii)] Repeat until maximum possible adjusted $R^2$ is reached.
-\end{enumerate}
+\item[-] Only predict for values of $x^\star$ that are in the range of the observed data.
+\item[-] Do not extrapolate beyond the range of the data, unless you are confident that the linear pattern continues.
 \end{itemize}
 
-\item Adjusted $R^2$ method is more computationally intensive, but it is more reliable, since it doesn't depend on an arbitrary significant level.
+\item Define $R^2$ as the percentage of the variability in the response variable explained by the the explanatory variable.
+\begin{itemize}
+\item[-] For a good model, we would like this number to be as close to 100\% as possible.
+\item[-] This value is calculated as the square of the correlation coefficient, and is between 0 and 1, inclusive.
+\end{itemize}
 
 \end{enumerate}
 
@@ -148,8 +171,17 @@ where $Var(e_i)$ measures the variability of residuals ($SS_{Err}$), $Var(y_i)$ 
 \item Videos: To be posted
 \item Test yourself:
 \begin{enumerate}
-\item Define the term ``parsimonious model".
-\item Describe the backward-selection algorithm using adjusted $R^2$ as the criterion for model selection.
+\item We would not want to fit a least squares line to the data shown in the scatterplot below. Which of the conditions does it appear to violate?
+\begin{center}
+\includegraphics[width=0.4\textwidth]{figures/nonconstant_var}
+\end{center}
+\item Derive the formula for $b_0$ given the fact that the linear model is $\hat{y} = b_0 + b_1 \times x$ and that the least squares line goes through ($\bar{x}, \bar{y}$).
+\item One study on male college students found their average height to be 70 inches with a standard deviation of 2 inches. Their average weight was 140 pounds, with a standard deviation of 25 pounds. The correlation between their height and weight was 0.60. Assuming that the two variables are linearly associated, write the linear model for predicting weight from height.
+\item Is a male who is 72 inches tall and who weighs 115 pounds on the line, below the line, or above the line?
+\item Describe what is an indicator variable, and what levels 0 and 1 mean for such variables.
+\item The model below predicts GPA based on an indicator variable (0: not premed, 1: premed). Interpret the intercept and slope estimates in context of the data.
+\[ \widehat{gpa} = 3.57 - 0.01 \times premed \]
+\item If the correlation between two variables $y$ and $x$ is 0.6, what percent of the variability in $y$ does $x$ explain? 
 \end{enumerate}
 \end{itemize}
 }}
@@ -159,18 +191,20 @@ where $Var(e_i)$ measures the variability of residuals ($SS_{Err}$), $Var(y_i)$ 
 \vspace{0.48cm}
 
 %
+
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item List the conditions for multiple linear regression as
-\begin{enumerate}
-\item[(1)] linear relationship between each (numerical) explanatory variable and the response - checked using scatterplots of $y$ vs. each $x$, and residuals plots of $residuals$ vs. each $x$
-\item[(2)] nearly normal residuals with mean 0 - checked using a normal probability plot and histogram of residuals
-\item[(3)] constant variability of residuals - checked using residuals plots of $residuals$ vs. $\hat{y}$, and $residuals$ vs. each $x$
-\item[(4)] independence of residuals (and hence observations) - checked using a scatterplot of $residuals$ vs. order of data collection (will reveal non-independence if data have time series structure)
-\end{enumerate}
+\item Define a leverage point as a point that lies away from the center of the data in the horizontal direction.
 
-\item Note that no model is perfect, but even imperfect models can be useful.
+\item Define an influential point as a point that influences (changes) the slope of the regression line.
+\begin{itemize}
+\item[-] This is usually a leverage point that is away from the trajectory of the rest of the data.
+\end{itemize}
+
+\item Do not remove outliers from an analysis without good reason.
+
+\item Be cautious about using a categorical explanatory variable when one of the levels has very few observations, as these may act as influential points.
 
 \end{enumerate}
 
@@ -180,13 +214,71 @@ where $Var(e_i)$ measures the variability of residuals ($SS_{Err}$), $Var(y_i)$ 
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
 \item Reading: Section 8.3 of OpenIntro Statistics
-\item Videos: To be posted
-\item Test yourself:
-\begin{enumerate}
-\item If a residuals plot ($residuals$ vs. $x$ or $residuals$ vs. $\hat{y}$) shows a fan shape, we worry about non-constant variability of residuals. What would the shape of these residuals look like if absolute value of residuals are plotted against a predictor or $\hat{y}$.
-\end{enumerate}
+\item Videos: To be posted 
+\item Test yourself: Determine if each of the three unusual observations in the plot below would be considered just an outlier, a leverage point, or an influential point.
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figures/outliers}
+\end{center}
 \end{itemize}
 }}
 
+%
+
+\vspace{0.48cm}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Determine whether an explanatory variable is a significant predictor for the response variable using the $t$-test and the associated p-value in the regression output.
+
+\item Set the null hypothesis testing for the significance of the predictor as $H_0: \beta_1 = 0$, and recognize that the standard software output yields the p-value for the two-sided alternative hypothesis.
+\begin{itemize}
+\item[-] Note that $\beta_1 = 0$ means the regression line is horizontal, hence suggesting that there is no relationship between the explanatory and the response variables.
+\end{itemize}
+
+\item Calculate the T score for the hypothesis test as 
+\[ T_{df} = \frac{b_1 - \text{null value}}{SE_{b_1}} \]
+with $df = n - 2$.
+\begin{itemize}
+\item[-] Note that the T score has $n - 2$ degrees of freedom since we lose one degree of freedom for each parameter we estimate, and in this case we estimate the intercept and the slope.
+\end{itemize}
+
+\item Note that a hypothesis test for the intercept is often irrelevant since it's usually out of the range of the data, and hence it is usually an extrapolation.
+
+\item Calculate a confidence interval for the slope as
+\[ b_1 \pm t^\star_{df} SE_{b_1}, \]
+where $df = n - 2$ and $t^\star_{df}$ is the critical score associated with the given confidence level at the desired degrees of freedom.
+\begin{itemize}
+\item[-] Note that the standard error of the slope estimate $SE_{b_1}$ can be found on the regression output.
+\end{itemize}
+
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.55cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 8.4 of OpenIntro Statistics
+\item Videos: To be posted 
+\item Test yourself: 
+\begin{enumerate}
+\item Given the regression output below for predicting $y$ from $x$ where $n = 100$, confirm the T score and the p-value, determine whether $x$ is a significant predictor of $y$, and interpret the p-value in context.
+\begin{center}
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 19.8581 & 6.1379 & 3.24 & 0.0017 \\ 
+  x & 0.2557 & 0.1055 & 2.42 & 0.0172 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\item Calculate a 95\% confidence interval for the slope given above.
+\end{enumerate}
+\end{itemize}
+}}
 
 \end{document}
