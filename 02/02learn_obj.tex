@@ -31,57 +31,28 @@
 \newcommand{\dark}[1]{\textcolor{dark}{#1}}
 \newcommand{\gray}[1]{\textcolor{gray}{#1}}
 
-
 %\date{}                                           % Activate to display a given date or no date
 
 %
 
 \begin{document}
 
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 2: Summarizing Data}} \\
+
 \begin{enumerate}
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Define trial, outcome, and sample space.
-
-\item Explain why the long-run relative frequency of repeated independent events settle down to the true probability as the number of trials increases, i.e. why the law of large numbers holds.
-
-\item Distinguish disjoint (also called mutually exclusive) and independent events.
+\item Use scatterplots for describing the relationship between two numerical variables making sure to note the direction (positive or negative), form (linear or non-linear) and the strength of the relationship as well as any unusual observations that stand out.
+\item When describing the distribution of a numerical variable, mention its shape, center, and spread, as well as any unusual observations.
+\item Note that there are three commonly used measures of center and spread: 
 \begin{itemize}
-\item[-] If A and B are independent, then having information on A does not tell us anything about B.
-\item[-] If A and B are disjoint, then knowing that A occurs tells us that B cannot occur.
-\item[-] Disjoint (mutually exclusive) events are always dependent since if one event occurs we know the other one cannot.
+\item[-] center: mean (the arithmetic average), median (the midpoint), mode (the most frequent observation).
+\item[-] spread: spread: standard deviation (variability around the mean), range (max-min), interquartile range (middle 50\% of the distribution).
 \end{itemize}
-
-\item Draw Venn diagrams representing events and their probabilities.
-
-\item Define a probability distribution as a list of the possible outcomes with corresponding probabilities that satisfies three rules: 
-\begin{itemize}
-\item[-] The outcomes listed must be disjoint. 
-\item[-] Each probability must be between 0 and 1, inclusive.
-\item[-] The probabilities must total 1. 
-\end{itemize}
-
-\item Define complementary outcomes as mutually exclusive outcomes of the same random process whose probabilities add up to 1. 
-\begin{itemize}
-\item[-] If A and B are complementary, $P(A) + P(B) = 1$.
-\end{itemize}
-
-\item Distinguish between union of events (A or B) and intersection of events (A and B).
-\begin{itemize}
-\item[-] Calculate the probability of union of events using the (general) addition rule.
-\begin{itemize}
-\item[+] If A and B are not mutually exclusive, $P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$.
-\item[+] If A and B are mutually exclusive, $P(A \text{ or } B) = P (A) + P (B)$, since for mutually exclusive events $P(A \text{ and } B) = 0$.
-\end{itemize}
-\item[-] Calculate the probability of intersection of independent events using the multiplication rule.
-\begin{itemize}
-\item[+] If A and B are dependent, $P(A \text{ and } B) = P(A) \times P(B | A)$.
-\item[+] If A and B are dependent, independent, $P(A \text{ and } B) = P(A) \times P(B)$,  since for independent events $P(B | A) = P(B)$.
-\end{itemize}
-\end{itemize}
-
+\item Identify the shape of a distribution as symmetric, right skewed, or left skewed, and unimodal, bimodal, multimodal, or uniform.
+\item Use histograms and box plots to visualize the shape, center, and spread of numerical distributions, and intensity maps for visualizing the spatial distribution of the data.
+\item Define a robust statistic (e.g. median, IQR) as measures that are not heavily affected by skewness and extreme outliers, and determine when they are more appropriate measured of center and spread compared to other similar statistics.
+\item Recognize when transformations (e.g. log) can make the distribution of data more symmetric, and hence easier to model.
 \end{enumerate}
-
 \gray{
 {\it
 \vspace{-0.75cm}
@@ -90,15 +61,14 @@
 \item Reading: Section 2.1 of OpenIntro Statistics
 \item Videos:
 \begin{itemize}
-\item \href{http://www.youtube.com/watch?v=zMv-zcO8Jmk}{Basics of probability}, YouTube (1:42) 
-\item \href{http://www.youtube.com/watch?v=DOooyE6liLY}{Union of events and the addition rule}, YouTube (3:37)
-\item \href{http://www.youtube.com/watch?v=Q_7PR9kRXWs}{Independent events, intersection of events, multiplication rule, and Bayes' Theorem}, YouTube (3:25)
+\item \href{http://youtu.be/FUIJruaneIc}{Mean, median, and mode}, Dr. \c{C}etinkaya-Rundel (1:16)
+\item \href{http://youtu.be/ME_k8JY58f4}{Visualizing distributions of numerical variables}, Dr. \c{C}etinkaya-Rundel (6:00)
+\item \href{http://www.khanacademy.org/math/statistics/v/reading-box-and-whisker-plots}{Reading box plots}, KhanAcademy (3:18)
 \end{itemize}
-\item Test yourself:
+\item Test yourself: 
 \begin{enumerate}
-\item What is the probability of getting a head on the 6th coin flip if in the first 5 flips the coin landed on a head each time?
-\item True / False: Being right handed and having blue eyes are mutually exclusive events.
-\item P(A) = 0.5, P(B) = 0.6, there are no other possible outcomes in the sample space. What is P(A and B)?
+\item Describe what is meant by robust statistics and when they are used.
+\item Describe when and why we might want to apply a log transformation to a variable. \\
 \end{enumerate}
 \end{itemize}
 }}
@@ -106,17 +76,11 @@
 
 %
 
-\vspace{0.48cm}
-
-%
-
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
-
-\item Distinguish marginal and conditional probabilities.
-
-\item Construct tree diagrams to calculate conditional probabilities and probabilities of intersection of non-independent events using Bayes' theorem.
-
+\item Use frequency tables and bar plots to describe the distribution of one categorical variable.
+\item Use contingency tables and segmented bar plots or mosaic plots to assess the relationship between two categorical variables.
+\item Use side-by-side box plots for assessing the relationship between a numerical and a categorical variable.
 \end{enumerate}
 
 \gray{
@@ -125,14 +89,34 @@
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
 \item Reading: Section 2.2 of OpenIntro Statistics
-\item Videos:
-\begin{itemize}
-\item \href{http://www.youtube.com/watch?v=HxEz4ZHUY5Y}{Probability trees}, Dr.\c{C}etinkaya-Rundel (8:23)
-\item \href{http://www.youtube.com/watch?feature=endscreen&NR=1&v=cwADSMeiIoE}{Conditional probability}, YouTube (8:59 - watch from 3:33 onwards)
-\item \href{http://www.youtube.com/watch?v=2Df1sDAyRvQ}{Bayes' Theorem worked out example}, YouTube, (9:20, somewhat lengthy) 
-\item \href{http://www.youtube.com/watch?v=E2pOJwSwWDk}{Another example of conditional probabilities using Bayes' Theorem}, YouTube (7:20)
+\item Video: \href{http://youtu.be/zLHunbpH5Hg}{Exploring relationships between categorical variables}, Dr. \c{C}etinkaya-Rundel (4:37)
+\item Test yourself: 
+\begin{enumerate}
+\item Interpret the plot in Figure 1.40 (page 39) of the textbook.
+\item You collect data on 100 classmates, 70 females and 30 males. 10\% of the class are smokers, and smoking is independent of gender. Calculate how many males and females would be expected to be smokers. Sketch a mosaic plot of this scenario. \\
+\end{enumerate}
 \end{itemize}
-\item Test yourself: 50\% of students in a class are social science majors and the rest are not. 70\% of the social science students and 40\% of the non-social science students are in a relationship. Create a contingency table and a tree diagram summarizing these probabilities. Calculate the percentage of students in this class who are in a relationship.
+}}
+
+%
+
+\vspace{0.5cm}
+
+%
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+\item Note that an observed difference in sample statistics suggesting dependence between variables may be due to random chance, and that we need to use hypothesis testing to determine if this difference is too large to be attributed to random chance.
+\item Set up null and alternative hypotheses for testing for independence between variables, and evaluate data's support for these hypotheses using a simulation technique.
+\end{enumerate}
+
+\gray{
+{\it
+\vspace{-0.75cm}
+\begin{itemize}
+\renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
+\item Reading: Section 2.3 of OpenIntro Statistics
+\item Test yourself: Explain why difference in sample proportions across two groups does not necessarily indicate dependence between the two variables involved?
 \end{itemize}
 }}
 
