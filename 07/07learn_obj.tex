@@ -34,52 +34,33 @@
 
 %\date{}                                           % Activate to display a given date or no date
 
+%
+
 \begin{document}
 
-{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 7: Simple linear regression}} \\
-
+{\LARGE \textcolor{oiB}{Learning Objectives \hfill Chapter 7: Inference for numerical data}} \\
 
 %
 
 \begin{enumerate}
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Define the explanatory variable as the independent variable (predictor), and the response variable as the dependent variable (predicted).
+\item Use the $t$-distribution for inference on a single mean, difference of paired (dependent) means, and difference of independent means.
 
-\item Plot the explanatory variable ($x$) on the x-axis and the response variable ($y$) on the y-axis, and fit a linear regression model
-\[ y = \beta_0 + \beta_1 x,\]
-where $\beta_0$ is the intercept, and $\beta_1$ is the slope.
+\item Explain why the $t$-distribution helps make up for the additional variability introduced by using $s$ (sample standard deviation) in calculation of the standard error, in place of $\sigma$ (population standard deviation).
+
+\item Describe how the $t$-distribution is different from the normal distribution, and what ?heavy tail? means in this context. 
+
+\item Note that the $t$-distribution has a single parameter, degrees of freedom, and as the degrees of freedom increases this distribution approaches the normal distribution. 
+
+\item Use a $t$-statistic, with degrees of freedom $df = n - 1$ for inference for a population mean:
 \begin{itemize}
-\item[-] Note that the point estimates (estimated from observed data) for $\beta_0$ and $\beta_1$ are $b_0$ and $b_1$, respectively.
+\item[-] Standard error: $SE = \frac{s}{\sqrt{n}}$
+\item[-] Confidence interval: $\bar{x} \pm t_{df}^\star SE$
+\item[-] Hypothesis test: $T_{df} = \frac{\bar{x} - \mu}{SE}$
 \end{itemize}
 
-\item When describing the association between two numerical variables, evaluate
-\begin{itemize}
-\item[-] direction: positive ($x \uparrow, y \uparrow$), negative ($x \downarrow, y \uparrow$)
-\item[-] form: linear or not
-\item[-] strength: determined by the scatter around the underlying relationship
-\end{itemize}
-
-\item Define correlation as the \emph{linear} association between two numerical variables.
-\begin{itemize}
-\item[-] Note that a relationship that is nonlinear is simply called an association.
-\end{itemize}
-
-\item Note that correlation coefficient ($r$, also called Pearson's $r$) the following properties:
-\begin{enumerate}
-\item[-] the magnitude (absolute value) of the correlation coefficient measures the strength of the linear association between two numerical variables
-\item[-] the sign of the correlation coefficient indicates the direction of association
-\item[-] the correlation coefficient is always between -1 and 1, inclusive, with -1 indicating perfect negative linear association, +1 indicating perfect positive linear association, and 0 indicating no \emph{linear} relationship
-\item[-] the correlation coefficient is unitless
-\item[-] since the correlation coefficient is unitless, it is not affected by changes in the center or scale of either variable (such as unit conversions)
-\item[-] the correlation of X with Y is the same as of Y with X 
-\item[-] the correlation coefficient is sensitive to outliers
-\end{enumerate}
-
-\item Recall that correlation does not imply causation.
-
-\item Define residual ($e$) as the difference between the observed ($y$) and predicted ($\hat{y}$) values of the response variable.
-\[ e_i = y_i - \hat{y}_i \]
+\item Describe how to obtain a p-value for a $t$-test and a critical $t$-score ($t^\star_{df}$) for a confidence interval.
 
 \end{enumerate}
 
@@ -89,20 +70,11 @@ where $\beta_0$ is the intercept, and $\beta_1$ is the slope.
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
 \item Reading: Section 7.1 of OpenIntro Statistics
-\item Videos: 
-\begin{itemize}
-\item[-] Review: \href{http://www.youtube.com/watch?v=5zyruPbgxyM}{Correlation vs. causation}, YouTube (2:19)
-\item[-] \href{http://www.youtube.com/watch?v=zPG4NjIkCjc}{Intro to Linear Regression}, YouTube (5:18) - very slow introduction to linear regression
-\end{itemize}
+%\item Videos: To be posted
 \item Test yourself:
 \begin{enumerate}
-\item Someone hands you the scatter diagram shown below, but has forgotten to label the axes. Can you calculate the correlation coefficient? Or do you need the labels?
-\begin{center}
-\includegraphics[width=0.4\textwidth]{figures/no_labels}
-\end{center}
-\item A teaching assistant gives a quiz. There are 10 questions on the quiz and no partial credit is given. After grading the papers the TA writes down for each student the number of questions the student got right and the number wrong. What is the correlation of the number of questions right and wrong? \\
-Hint: Make up some data for number of questions right, calculate number of questions wrong, and plot them against each other.
-\item Suppose you fit a linear regression model predicting score on an exam from number of hours studied. Say you've studied for 4 hours. Would you prefer to be on the line, below the line, or above the line? What would the residual for your score be (0, negative, or positive)?
+\item What is the $t^\star$ for a 95\% confidence interval for a mean, where the sample size is 13.
+\item What is the p-value for a hypothesis test where the alternative hypothesis is two-sided, the sample size is 20, and the test statistic, T, is calculated to be 1.75? 
 \end{enumerate}
 \end{itemize}
 }}
@@ -112,53 +84,26 @@ Hint: Make up some data for number of questions right, calculate number of quest
 \vspace{0.48cm}
 
 %
+
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Define the least squares line as the line that minimizes the sum of the squared residuals, and list conditions necessary for fitting such line:
-\begin{enumerate}
-\item[(1)] linearity
-\item[(2)] nearly normal residuals
-\item[(3)] constant variability
-\end{enumerate}
+\item Define observations as paired if each observation in one dataset has a special correspondence or connection with exactly one observation in the other data set. 
 
-\item Define an indicator variable as a binary explanatory variable (with two levels).
+\item Carry out inference for paired data by first subtracting the paired observations from each other, and then treating the set of differences as a new numerical variable on which to do inference (such as a confidence interval or hypothesis test for the average difference). 
 
-\item Calculate the estimate for the slope ($b_1$) as 
-\[ b_1 = R\frac{s_y}{s_x}, \]
-where $r$ is the correlation coefficient, $s_y$ is the standard deviation of the response variable, and $s_x$ is the standard deviation of the explanatory variable.
+\item Calculate the standard error of the difference between means of two paired (dependent) samples as $SE = \frac{s_{diff}}{\sqrt{n_{diff}}}$ and use this standard error in hypothesis testing and confidence intervals comparing means of paired (dependent) groups. 
 
-\item Interpret the slope as 
+\item Use a $t$-statistic, with degrees of freedom $df = n_{diff} - 1$ for inference for a population mean:
 \begin{itemize}
-\item[-] ``For each unit increase in $x$, we would expect $y$ to increase/decrease on average by $|b_1|$ units" when $x$ is numerical.
-\item[-] ``The average increase/decrease in the response variable when between the baseline level and the other level of the explanatory variable is $|b_1|$." when $x$ is categorical.
-\item[-] Note that whether the response variable increases or decreases is determined by the sign of $b_1$.
+\item[-] Standard error: $SE = \frac{s}{\sqrt{n}}$
+\item[-] Confidence interval: $\bar{x}_{diff} \pm t_{df}^\star SE$
+\item[-] Hypothesis test: $T_{df} = \frac{\bar{x}_{diff} - \mu_{diff}}{SE}$. Note that $\mu_{diff}$ is often 0, since often $H_0: \mu_{diff} = 0$.
 \end{itemize}
 
-\item Note that the least squares line always passes through the average of the response and explanatory variables ($\bar{x},\bar{y}$).
+\item Recognize that a good interpretation of a confidence interval for the difference between two parameters includes a comparative statement (mentioning which group has the larger parameter). 
 
-\item Use the above property to calculate the estimate for the slope ($b_0$) as 
-\[ b_0 = \bar{y} - b_1 \bar{x}, \]
-where $b_1$ is the slope, $\bar{y}$ is the average of the response variable, and $\bar{x}$ is the average of explanatory variable.
-
-\item Interpret the intercept as
-\begin{itemize}
-\item[-] ``When $x = 0$, we would expect $y$ to equal, on average, $b_0$." when $x$ is numerical.
-\item[-] ``The expected average value of the response variable for the reference level of the explanatory variable is $b_0$." when $x$ is categorical.
-\end{itemize}
-
-\item Predict the value of the response variable for a given value of the explanatory variable, $x^\star$, by plugging in $x^\star$ in the in the linear model:
-\[ \hat{y} = b_0 + b_1 x^\star \]
-\begin{itemize}
-\item[-] Only predict for values of $x^\star$ that are in the range of the observed data.
-\item[-] Do not extrapolate beyond the range of the data, unless you are confident that the linear pattern continues.
-\end{itemize}
-
-\item Define $R^2$ as the percentage of the variability in the response variable explained by the the explanatory variable.
-\begin{itemize}
-\item[-] For a good model, we would like this number to be as close to 100\% as possible.
-\item[-] This value is calculated as the square of the correlation coefficient, and is between 0 and 1, inclusive.
-\end{itemize}
+\item Recognize that a confidence interval for the difference between two parameters that doesn?t include 0 is in agreement with a hypothesis test where the null hypothesis that sets the two parameters equal to each other is rejected. 
 
 \end{enumerate}
 
@@ -168,20 +113,11 @@ where $b_1$ is the slope, $\bar{y}$ is the average of the response variable, and
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
 \item Reading: Section 7.2 of OpenIntro Statistics
-\item Videos: To be posted
+%\item Videos: To be posted
 \item Test yourself:
 \begin{enumerate}
-\item We would not want to fit a least squares line to the data shown in the scatterplot below. Which of the conditions does it appear to violate?
-\begin{center}
-\includegraphics[width=0.4\textwidth]{figures/nonconstant_var}
-\end{center}
-\item Derive the formula for $b_0$ given the fact that the linear model is $\hat{y} = b_0 + b_1 \times x$ and that the least squares line goes through ($\bar{x}, \bar{y}$).
-\item One study on male college students found their average height to be 70 inches with a standard deviation of 2 inches. Their average weight was 140 pounds, with a standard deviation of 25 pounds. The correlation between their height and weight was 0.60. Assuming that the two variables are linearly associated, write the linear model for predicting weight from height.
-\item Is a male who is 72 inches tall and who weighs 115 pounds on the line, below the line, or above the line?
-\item Describe what is an indicator variable, and what levels 0 and 1 mean for such variables.
-\item The model below predicts GPA based on an indicator variable (0: not premed, 1: premed). Interpret the intercept and slope estimates in context of the data.
-\[ \widehat{gpa} = 3.57 - 0.01 \times premed \]
-\item If the correlation between two variables $y$ and $x$ is 0.6, what percent of the variability in $y$ does $x$ explain? 
+\item 20 cardiac patients' blood pressure is measured before taking a medication, and after. For a given patient, are the before and after blood pressure measurements dependent (paired) or independent?
+\item A random sample of 100 students were obtained and then randomly assigned into two equal sized groups. One group went on a roller coaster while the other in a simulator at an amusement park. Afterwards their blood pressure measurements were taken. Are the measurements dependent (paired) or independent?
 \end{enumerate}
 \end{itemize}
 }}
@@ -195,16 +131,14 @@ where $b_1$ is the slope, $\bar{y}$ is the average of the response variable, and
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Define a leverage point as a point that lies away from the center of the data in the horizontal direction.
+\item Calculate the standard error of the difference between means of two independent samples as $SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$, and use this standard error in hypothesis testing and confidence intervals comparing means of independent groups.
 
-\item Define an influential point as a point that influences (changes) the slope of the regression line.
+\item Use a $t$-statistic, with degrees of freedom $df = min(n_1 - 1, n_2 - 1)$ for inference for a population mean:
 \begin{itemize}
-\item[-] This is usually a leverage point that is away from the trajectory of the rest of the data.
+\item[-] Standard error: $\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$
+\item[-] Confidence interval: $(\bar{x}_1 - \bar{x}_2) \pm t_{df}^\star SE$
+\item[-] Hypothesis test: $T_{df} = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{SE}$. Note that $\mu_{diff}$ is often 0, since often $H_0: \mu_1 - \mu_2 = 0$.
 \end{itemize}
-
-\item Do not remove outliers from an analysis without good reason.
-
-\item Be cautious about using a categorical explanatory variable when one of the levels has very few observations, as these may act as influential points.
 
 \end{enumerate}
 
@@ -214,11 +148,12 @@ where $b_1$ is the slope, $\bar{y}$ is the average of the response variable, and
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
 \item Reading: Section 7.3 of OpenIntro Statistics
-\item Videos: To be posted 
-\item Test yourself: Determine if each of the three unusual observations in the plot below would be considered just an outlier, a leverage point, or an influential point.
-\begin{center}
-\includegraphics[width=0.5\textwidth]{figures/outliers}
-\end{center}
+%\item Videos: To be posted
+\item Test yourself:
+\begin{enumerate}
+\item Describe how the two sample means test is different from the paired means test, both conceptually and in terms of the calculation of the standard error.
+\item A 95\% confidence interval for the difference between the number of calories consumed by mature and juvenile cats ($\mu_{mat} - \mu_{juv}$) is (80 calories, 100 calories). Interpret this interval, and determine if it suggests a significant difference between the two means.
+\end{enumerate}
 \end{itemize}
 }}
 
@@ -231,28 +166,46 @@ where $b_1$ is the slope, $\bar{y}$ is the average of the response variable, and
 \begin{enumerate}[resume]
 \renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
 
-\item Determine whether an explanatory variable is a significant predictor for the response variable using the $t$-test and the associated p-value in the regression output.
+\item Calculate the power of a test for a given effect size and significance level in two steps: (1) Find the cutoff for the sample statistic that will allow the null hypothesis to be rejected at the given significance level, (2) Calculate the probability of obtaining that sample statistic given the effect size.
 
-\item Set the null hypothesis testing for the significance of the predictor as $H_0: \beta_1 = 0$, and recognize that the standard software output yields the p-value for the two-sided alternative hypothesis.
+\item Explain how power changes for changes in effect size, sample size, significance level, and standard error.
+
+\end{enumerate}
+
+%
+
+\vspace{0.48cm}
+
+
+\begin{enumerate}[resume]
+\renewcommand\labelenumi{\textcolor{light}{\textbf{LO \theenumi.}}}
+
+\item Define analysis of variance (ANOVA) as a statistical inference method that is used to determine if the variability in the sample means is so large that it seems unlikely to be from chance alone by simultaneously considering many groups at once.
+
+\item Recognize that the null hypothesis in ANOVA sets all means equal to each other, and the alternative hypothesis suggest that at least one mean is different.
 \begin{itemize}
-\item[-] Note that $\beta_1 = 0$ means the regression line is horizontal, hence suggesting that there is no relationship between the explanatory and the response variables.
-\end{itemize}
+\item[] $H_0: \mu_1 = \mu_2 = \cdots = \mu_k$
+\item[] $H_A:$ At least one mean is different
+\end{itemize} 
 
-\item Calculate the T score for the hypothesis test as 
-\[ T_{df} = \frac{b_1 - \text{null value}}{SE_{b_1}} \]
-with $df = n - 2$.
+\item List the conditions necessary for performing ANOVA
+\begin{enumerate}
+\item[(1)] the observations should be independent within and across groups
+\item[(2)] the data within each group are nearly normal
+\item[(3)] the variability across the groups is about equal
+\end{enumerate}
+and check if they are met using graphical diagnostics.
+
+\item Recognize that the test statistic for ANOVA, the F statistic, is calculated as the ratio of the mean square between groups (MSG, variability between groups) and mean square error (MSE, variability within errors), and has two degrees of freedom, one for the numerator ($df_{G} = k - 1$, where $k$ is the number of groups) and one for the denominator ($df_{E} = n - k$, where $n$ is the total sample size).
 \begin{itemize}
-\item[-] Note that the T score has $n - 2$ degrees of freedom since we lose one degree of freedom for each parameter we estimate, and in this case we estimate the intercept and the slope.
-\end{itemize}
+\item[-] Note that you won't be expected to calculate MSG or MSE from the raw data, but you should have a conceptual understanding of how they're calculated and what they measure.
+\end{itemize} 
 
-\item Note that a hypothesis test for the intercept is often irrelevant since it's usually out of the range of the data, and hence it is usually an extrapolation.
+\item Describe why calculation of the p-value for ANOVA is always ``one sided".
 
-\item Calculate a confidence interval for the slope as
-\[ b_1 \pm t^\star_{df} SE_{b_1}, \]
-where $df = n - 2$ and $t^\star_{df}$ is the critical score associated with the given confidence level at the desired degrees of freedom.
-\begin{itemize}
-\item[-] Note that the standard error of the slope estimate $SE_{b_1}$ can be found on the regression output.
-\end{itemize}
+\item Describe why conducting many $t$-tests for differences between each pair of means leads to an increased Type 1 Error rate, and we use a corrected significance level (Bonferroni corection, $\alpha^\star = \alpha / K$, where $K$ is the e number of comparisons being considered) to combat inflating this error rate.
+
+\item Describe why it is possible to reject the null hypothesis in ANOVA but not find significant differences between groups as a result of pairwise comparisons.
 
 \end{enumerate}
 
@@ -261,24 +214,17 @@ where $df = n - 2$ and $t^\star_{df}$ is the critical score associated with the 
 \vspace{-0.55cm}
 \begin{itemize}
 \renewcommand{\labelitemi}{{\textcolor{dark}{$\ast$}}}
-\item Reading: Section 7.4 of OpenIntro Statistics
-\item Videos: To be posted 
-\item Test yourself: 
+\item Reading: Section 7.4 and 7.5 of OpenIntro Statistics
+%\item Videos: To be posted
+\item Test yourself:
 \begin{enumerate}
-\item Given the regression output below for predicting $y$ from $x$ where $n = 100$, confirm the T score and the p-value, determine whether $x$ is a significant predictor of $y$, and interpret the p-value in context.
-\begin{center}
-\begin{tabular}{rrrrr}
-  \hline
- & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
-  \hline
-(Intercept) & 19.8581 & 6.1379 & 3.24 & 0.0017 \\ 
-  x & 0.2557 & 0.1055 & 2.42 & 0.0172 \\ 
-   \hline
-\end{tabular}
-\end{center}
-\item Calculate a 95\% confidence interval for the slope given above.
+\item We would like to compare the average income of Americans who live in the Northeast, Midwest, South, and West. What are the appropriate hypotheses?
+\item Suppose the sample in the question above has 1000 observations, what are the degrees of freedom associated with the F-statistic?
+\item Suppose the null hypothesis is rejected. Describe how we would discover which regions' averages are different from each other? Make sure to discuss how many pairwise comparisons we would need to make, and what the corrected significance level would be.
+\item What visualizations are useful for checking each of the conditions required for performing ANOVA?
 \end{enumerate}
 \end{itemize}
 }}
+
 
 \end{document}
